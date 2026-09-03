@@ -1,0 +1,4 @@
+baseURL = "https://qcn-lab.github.io/"
+languageCode = "en-us"
+title = "QCN Lab"
+theme = "ananke"
