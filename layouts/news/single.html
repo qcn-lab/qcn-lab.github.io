@@ -1,0 +1,236 @@
+{{ define "main" }}
+
+<article class="news-article">
+
+    <div class="news-article-container">
+
+
+        <!-- Back -->
+
+        <a
+            href="{{ "/news/" | relURL }}"
+            class="news-back"
+        >
+            ← Back to News
+        </a>
+
+
+
+        <!-- Date -->
+
+        <div class="news-article-date">
+
+            {{ with .Params.display_date }}
+
+                {{ . }}
+
+            {{ else }}
+
+                {{ .Date.Format "January 2006" }}
+
+            {{ end }}
+
+        </div>
+
+
+
+        <!-- Title -->
+
+        <h1>
+            {{ .Title }}
+        </h1>
+
+
+
+        <!-- Divider -->
+
+        <div class="news-article-divider"></div>
+
+
+
+        <!-- Article -->
+
+        <div class="news-article-content">
+
+            {{ .Content }}
+
+        </div>
+
+
+    </div>
+
+</article>
+
+
+
+<style>
+
+/* =========================================
+   ARTICLE
+========================================= */
+
+.news-article {
+
+    padding: 90px 32px 130px;
+
+    background: #ffffff;
+
+}
+
+
+.news-article-container {
+
+    width: 100%;
+
+    max-width: 900px;
+
+    margin: 0 auto;
+
+}
+
+
+
+/* Back */
+
+.news-back {
+
+    display: inline-block;
+
+    margin-bottom: 60px;
+
+    color: #2563eb;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+}
+
+
+.news-back:hover {
+
+    text-decoration: underline;
+
+}
+
+
+
+/* Date */
+
+.news-article-date {
+
+    margin-bottom: 20px;
+
+    color: #2563eb;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 2px;
+
+}
+
+
+
+/* Title */
+
+.news-article h1 {
+
+    max-width: 850px;
+
+    margin: 0;
+
+    color: #0f172a;
+
+    font-size: 52px;
+
+    line-height: 1.15;
+
+    font-weight: 500;
+
+    letter-spacing: -1.8px;
+
+}
+
+
+
+/* Divider */
+
+.news-article-divider {
+
+    width: 100%;
+
+    height: 1px;
+
+    margin: 50px 0;
+
+    background: #cbd5e1;
+
+}
+
+
+
+/* Content */
+
+.news-article-content {
+
+    max-width: 760px;
+
+    color: #475569;
+
+    font-size: 17px;
+
+    line-height: 1.9;
+
+}
+
+
+.news-article-content p {
+
+    margin: 0 0 24px;
+
+}
+
+
+.news-article-content strong {
+
+    color: #0f172a;
+
+    font-weight: 600;
+
+}
+
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+    .news-article {
+
+        padding: 70px 24px 100px;
+
+    }
+
+
+    .news-back {
+
+        margin-bottom: 45px;
+
+    }
+
+
+    .news-article h1 {
+
+        font-size: 40px;
+
+    }
+
+}
+
+</style>
+
+{{ end }}

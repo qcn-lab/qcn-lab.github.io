@@ -1,0 +1,487 @@
+<header class="site-header">
+
+    <div class="nav-container">
+
+
+        <!-- =========================================
+             Lab Name
+        ========================================== -->
+
+        <a class="site-logo" href="{{ "/" | relURL }}">
+            QCN Lab
+        </a>
+
+
+
+        <!-- =========================================
+             Main Navigation
+        ========================================== -->
+
+        <nav class="main-nav">
+
+
+            <!-- Home -->
+
+            <a href="{{ "/" | relURL }}">
+                Home
+            </a>
+
+
+
+            <!-- Research -->
+
+            <a href="{{ "/research/" | relURL }}">
+                Research
+            </a>
+
+
+
+            <!-- =====================================
+                 People Dropdown
+            ====================================== -->
+
+            <div class="nav-dropdown">
+
+                <a
+                    class="dropdown-title"
+                    href="{{ "/people/" | relURL }}"
+                >
+                    People
+
+                    <span class="arrow">
+                        ▾
+                    </span>
+
+                </a>
+
+
+                <div class="dropdown-menu">
+
+
+                    <!-- Principal Investigator -->
+
+                    <a href="{{ "/people/pi/" | relURL }}">
+                        Principal Investigator
+                    </a>
+
+
+                    <!-- Postdoctoral Researchers -->
+
+                    <a href="{{ "/people/postdocs/" | relURL }}">
+                        Postdoctoral Researchers
+                    </a>
+
+
+                    <!-- PhD Students -->
+
+                    <a href="{{ "/people/phd/" | relURL }}">
+                        PhD Students
+                    </a>
+
+
+                    <!-- Master's Students -->
+
+                    <a href="{{ "/people/masters/" | relURL }}">
+                        Master's Students
+                    </a>
+
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Publications -->
+
+            <a href="{{ "/publications/" | relURL }}">
+                Publications
+            </a>
+
+
+
+            <!-- Facilities -->
+
+            <a href="{{ "/facilities/" | relURL }}">
+                Facilities
+            </a>
+
+
+
+            <!-- News -->
+
+            <a href="{{ "/news/" | relURL }}">
+                News
+            </a>
+
+
+
+            <!-- Join Us -->
+
+            <a href="{{ "/join/" | relURL }}">
+                Join Us
+            </a>
+
+
+        </nav>
+
+    </div>
+
+
+
+    <!-- =========================================
+         Header CSS
+    ========================================== -->
+
+    <style>
+
+
+        /* =========================================
+           Header
+        ========================================== */
+
+        .site-header {
+
+            position: fixed;
+
+            top: 0;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 80px;
+
+            background: rgba(255, 255, 255, 0.97);
+
+            border-bottom: 1px solid #e5e7eb;
+
+            z-index: 1000;
+
+        }
+
+
+
+        /* =========================================
+           Navigation Container
+        ========================================== */
+
+        .nav-container {
+
+            width: 100%;
+
+            max-width: 1280px;
+
+            height: 100%;
+
+            margin: 0 auto;
+
+            padding: 0 32px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            box-sizing: border-box;
+
+        }
+
+
+
+        /* =========================================
+           Logo
+        ========================================== */
+
+        .site-logo {
+
+            font-size: 25px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.3px;
+
+            color: #0f172a;
+
+            text-decoration: none;
+
+            white-space: nowrap;
+
+        }
+
+
+        .site-logo:hover {
+
+            color: #2563eb;
+
+        }
+
+
+
+        /* =========================================
+           Main Navigation
+        ========================================== */
+
+        .main-nav {
+
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 28px;
+
+        }
+
+
+
+        .main-nav > a,
+        .dropdown-title {
+
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+            font-size: 15px;
+
+            font-weight: 500;
+
+            color: #334155;
+
+            text-decoration: none;
+
+            white-space: nowrap;
+
+            transition: color 0.2s ease;
+
+        }
+
+
+
+        .main-nav > a:hover,
+        .dropdown-title:hover {
+
+            color: #2563eb;
+
+        }
+
+
+
+        /* =========================================
+           People Dropdown
+        ========================================== */
+
+        .nav-dropdown {
+
+            position: relative;
+
+            height: 100%;
+
+            display: flex;
+
+            align-items: center;
+
+        }
+
+
+
+        .arrow {
+
+            margin-left: 5px;
+
+            font-size: 11px;
+
+            transition: transform 0.2s ease;
+
+        }
+
+
+
+        .nav-dropdown:hover .arrow {
+
+            transform: rotate(180deg);
+
+        }
+
+
+
+        /* =========================================
+           Dropdown Menu
+        ========================================== */
+
+        .dropdown-menu {
+
+            position: absolute;
+
+            top: 80px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: 240px;
+
+            padding: 9px;
+
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 8px;
+
+            box-shadow:
+                0 12px 35px rgba(0, 0, 0, 0.10);
+
+            opacity: 0;
+
+            visibility: hidden;
+
+            pointer-events: none;
+
+            transition:
+                opacity 0.18s ease,
+                visibility 0.18s ease;
+
+        }
+
+
+
+        /*
+           Invisible bridge between People
+           and dropdown menu.
+           Prevents menu disappearing.
+        */
+
+        .dropdown-menu::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+
+            top: -15px;
+
+            width: 100%;
+
+            height: 15px;
+
+        }
+
+
+
+        /* =========================================
+           Dropdown Items
+        ========================================== */
+
+        .dropdown-menu a {
+
+            display: block;
+
+            padding: 11px 13px;
+
+            border-radius: 6px;
+
+            color: #334155;
+
+            font-size: 14px;
+
+            font-weight: 400;
+
+            text-decoration: none;
+
+            white-space: nowrap;
+
+            transition:
+                background 0.18s ease,
+                color 0.18s ease;
+
+        }
+
+
+
+        .dropdown-menu a:hover {
+
+            background: #f1f5f9;
+
+            color: #2563eb;
+
+        }
+
+
+
+        /* =========================================
+           Show Dropdown
+        ========================================== */
+
+        .nav-dropdown:hover .dropdown-menu {
+
+            opacity: 1;
+
+            visibility: visible;
+
+            pointer-events: auto;
+
+        }
+
+
+
+        /* =========================================
+           Responsive
+        ========================================== */
+
+        @media (max-width: 1100px) {
+
+            .main-nav {
+
+                gap: 20px;
+
+            }
+
+
+            .main-nav > a,
+            .dropdown-title {
+
+                font-size: 14px;
+
+            }
+
+        }
+
+
+
+        @media (max-width: 950px) {
+
+            .nav-container {
+
+                padding-left: 22px;
+
+                padding-right: 22px;
+
+            }
+
+
+            .main-nav {
+
+                gap: 14px;
+
+            }
+
+
+            .main-nav > a,
+            .dropdown-title {
+
+                font-size: 13px;
+
+            }
+
+        }
+
+
+    </style>
+
+</header>

@@ -1,0 +1,357 @@
+{{ define "main" }}
+
+<section class="publications-page">
+
+    <div class="publications-container">
+
+        <div class="page-label">
+            RESEARCH OUTPUT
+        </div>
+
+        <h1>Publications</h1>
+
+        <p class="page-intro">
+            Selected publications from QCN Lab.
+        </p>
+
+
+        <!-- =========================================
+             Find all publication pages in the site
+        ========================================== -->
+
+        {{ $publications := where site.RegularPages "Section" "publications" }}
+
+        {{ $years := slice }}
+
+        {{ range $publications }}
+            {{ with .Params.pubyear }}
+                {{ $years = $years | append . }}
+            {{ end }}
+        {{ end }}
+
+        {{ $years = $years | uniq | sort | collections.Reverse }}
+
+
+        <!-- =========================================
+             Group publications by year
+        ========================================== -->
+
+        {{ range $years }}
+
+            {{ $year := . }}
+
+            <div class="publication-year-section">
+
+                <h2 class="year-title">
+                    {{ $year }}
+                </h2>
+
+
+                <div class="publication-list">
+
+                    {{ $papers := where $publications "Params.pubyear" $year }}
+
+                    {{ range $papers.ByWeight }}
+
+                    <article class="publication-card">
+
+
+                        <!-- Title -->
+
+                        <h3 class="publication-title">
+                            {{ .Title }}
+                        </h3>
+
+
+                        <!-- Type -->
+
+                        {{ with .Params.type_label }}
+
+                        <div class="publication-type">
+                            {{ . }}
+                        </div>
+
+                        {{ end }}
+
+
+                        <!-- Authors -->
+
+                        {{ with .Params.authors }}
+
+                        <div class="publication-authors">
+                            {{ . }}
+                        </div>
+
+                        {{ end }}
+
+
+                        <!-- Journal -->
+
+                        <div class="publication-journal">
+
+                            {{ with .Params.journal }}
+                                <span>{{ . }}</span>
+                            {{ end }}
+
+                            {{ with .Params.volume }}
+                                <strong>{{ . }}</strong>
+                            {{ end }}
+
+                            {{ with .Params.pages }}
+                                <span>, {{ . }}</span>
+                            {{ end }}
+
+                            {{ with .Params.pubyear }}
+                                <span> ({{ . }})</span>
+                            {{ end }}
+
+                        </div>
+
+
+                        <!-- DOI -->
+
+                        {{ with .Params.doi }}
+
+                        <div class="doi-text">
+                            DOI: {{ . }}
+                        </div>
+
+                        {{ end }}
+
+
+                    </article>
+
+                    {{ end }}
+
+                </div>
+
+            </div>
+
+        {{ end }}
+
+    </div>
+
+</section>
+
+
+<style>
+
+
+/* =========================================
+   Page
+========================================= */
+
+.publications-page {
+    padding: 90px 32px 130px;
+    background: #ffffff;
+}
+
+
+.publications-container {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   Header
+========================================= */
+
+.page-label {
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 16px;
+}
+
+
+.publications-page > .publications-container > h1 {
+    color: #0f172a;
+    font-size: 64px;
+    font-weight: 500;
+    line-height: 1.1;
+    letter-spacing: -2px;
+    margin: 0 0 15px;
+}
+
+
+.page-intro {
+    color: #64748b;
+    font-size: 18px;
+    line-height: 1.7;
+    margin-bottom: 80px;
+}
+
+
+/* =========================================
+   Year
+========================================= */
+
+.publication-year-section {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 50px;
+
+    margin-bottom: 85px;
+}
+
+
+.publication-year-section:last-child {
+    margin-bottom: 0;
+}
+
+
+.year-title {
+    color: #0f172a;
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin: 0;
+}
+
+
+/* =========================================
+   Publication list
+========================================= */
+
+.publication-list {
+    border-top: 1px solid #cbd5e1;
+}
+
+
+.publication-card {
+    padding: 32px 0 36px;
+    border-bottom: 1px solid #cbd5e1;
+}
+
+
+/* =========================================
+   Title
+========================================= */
+
+.publication-title {
+    max-width: 900px;
+
+    color: #0f172a;
+
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.45;
+
+    margin: 0 0 10px;
+}
+
+
+/* =========================================
+   Type
+========================================= */
+
+.publication-type {
+    display: inline-block;
+
+    padding: 5px 9px;
+    margin-bottom: 16px;
+
+    background: #eff6ff;
+    color: #2563eb;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    text-transform: uppercase;
+    letter-spacing: 0.7px;
+}
+
+
+/* =========================================
+   Authors
+========================================= */
+
+.publication-authors {
+    max-width: 900px;
+
+    color: #475569;
+
+    font-size: 15px;
+    line-height: 1.7;
+
+    margin-bottom: 7px;
+}
+
+
+/* =========================================
+   Journal
+========================================= */
+
+.publication-journal {
+    color: #64748b;
+
+    font-size: 14px;
+    line-height: 1.6;
+
+    margin-bottom: 10px;
+}
+
+
+.publication-journal strong {
+    color: #475569;
+    font-weight: 600;
+    margin-left: 3px;
+}
+
+
+/* =========================================
+   DOI
+========================================= */
+
+.doi-text {
+    color: #475569;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   Mobile
+========================================= */
+
+@media (max-width: 750px) {
+
+    .publications-page {
+        padding: 70px 24px 100px;
+    }
+
+
+    .publications-page > .publications-container > h1 {
+        font-size: 48px;
+    }
+
+
+    .page-intro {
+        margin-bottom: 55px;
+    }
+
+
+    .publication-year-section {
+        grid-template-columns: 1fr;
+        gap: 25px;
+        margin-bottom: 60px;
+    }
+
+
+    .year-title {
+        font-size: 26px;
+    }
+
+
+    .publication-title {
+        font-size: 20px;
+    }
+
+}
+
+</style>
+
+{{ end }}

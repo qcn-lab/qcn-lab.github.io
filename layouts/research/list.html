@@ -1,0 +1,522 @@
+{{ define "main" }}
+
+<section class="research-page">
+
+    <div class="research-page-container">
+
+
+        <!-- =================================================
+             PAGE HEADER
+        ================================================== -->
+
+        <div class="research-page-label">
+            RESEARCH
+        </div>
+
+        <h1>
+            Research Areas
+        </h1>
+
+        <p class="research-page-intro">
+            Our research spans nuclear quantum optics, quantum-dot
+            experimental platforms, and AI-driven methodologies,
+            bringing together theory, experiment, and computation
+            to explore new frontiers of quantum science.
+        </p>
+
+
+
+        <!-- =================================================
+             RESEARCH LIST
+        ================================================== -->
+
+        <div class="research-area-list">
+
+            {{ range .RegularPages.ByWeight }}
+
+
+            <article class="research-area-card">
+
+
+                <!-- =========================================
+                     LEFT CONTENT
+                ========================================== -->
+
+                <div class="research-area-content">
+
+
+                    <div class="research-area-number">
+                        0{{ .Weight }}
+                    </div>
+
+
+                    <h2>
+                        {{ .Title }}
+                    </h2>
+
+
+                    {{ with .Params.summary }}
+
+                    <p class="research-area-summary">
+                        {{ . }}
+                    </p>
+
+                    {{ end }}
+
+
+                    <a
+                        href="{{ .RelPermalink }}"
+                        class="research-more"
+                    >
+                        View More
+                    </a>
+
+
+                </div>
+
+
+
+                <!-- =========================================
+                     RIGHT IMAGE
+                ========================================== -->
+
+                <div class="research-area-image">
+
+                    {{ with .Params.image }}
+
+                    <img
+                        src="{{ . | relURL }}"
+                        alt="{{ $.Title }}"
+                    >
+
+                    {{ else }}
+
+                    <div class="research-image-placeholder">
+                        <span>
+                            Image coming soon
+                        </span>
+                    </div>
+
+                    {{ end }}
+
+                </div>
+
+
+            </article>
+
+
+            {{ end }}
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<style>
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.research-page {
+
+    padding: 90px 32px 130px;
+
+    background: #ffffff;
+
+}
+
+
+.research-page-container {
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+}
+
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.research-page-label {
+
+    margin-bottom: 16px;
+
+    color: #2563eb;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+}
+
+
+.research-page h1 {
+
+    margin: 0 0 20px;
+
+    color: #0f172a;
+
+    font-size: 64px;
+
+    line-height: 1.05;
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+
+}
+
+
+.research-page-intro {
+
+    max-width: 760px;
+
+    margin: 0 0 80px;
+
+    color: #64748b;
+
+    font-size: 18px;
+
+    line-height: 1.75;
+
+}
+
+
+
+/* =========================================================
+   RESEARCH LIST
+========================================================= */
+
+.research-area-list {
+
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 28px;
+
+}
+
+
+
+/* =========================================================
+   RESEARCH CARD
+========================================================= */
+
+.research-area-card {
+
+    display: grid;
+
+    grid-template-columns: minmax(0, 1.45fr) minmax(300px, 0.75fr);
+
+    gap: 55px;
+
+    align-items: center;
+
+    min-height: 330px;
+
+    padding: 38px 42px;
+
+    background: #ffffff;
+
+    border: 1px solid #e5e7eb;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.07);
+
+}
+
+
+
+/* =========================================================
+   LEFT
+========================================================= */
+
+.research-area-content {
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: flex-start;
+
+}
+
+
+.research-area-number {
+
+    margin-bottom: 28px;
+
+    color: #2563eb;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1.5px;
+
+}
+
+
+.research-area-content h2 {
+
+    margin: 0 0 20px;
+
+    color: #0f172a;
+
+    font-size: 28px;
+
+    line-height: 1.3;
+
+    font-weight: 600;
+
+}
+
+
+.research-area-summary {
+
+    max-width: 720px;
+
+    margin: 0 0 28px;
+
+    color: #64748b;
+
+    font-size: 15px;
+
+    line-height: 1.8;
+
+}
+
+
+
+/* =========================================================
+   VIEW MORE BUTTON
+========================================================= */
+
+.research-more {
+
+    display: inline-flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    min-width: 105px;
+
+    padding: 11px 18px;
+
+    background: #2563eb;
+
+    color: #ffffff;
+
+    border-radius: 4px;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.research-more:hover {
+
+    background: #1d4ed8;
+
+    transform: translateY(-2px);
+
+}
+
+
+
+/* =========================================================
+   RIGHT IMAGE
+========================================================= */
+
+.research-area-image {
+
+    width: 100%;
+
+    min-height: 245px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    overflow: hidden;
+
+}
+
+
+.research-area-image img {
+
+    display: block;
+
+    width: 100%;
+
+    height: 245px;
+
+    object-fit: cover;
+
+    object-position: center;
+
+}
+
+
+
+/* Empty image placeholder */
+
+.research-image-placeholder {
+
+    width: 100%;
+
+    height: 245px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    background: #f8fafc;
+
+    border: 1px solid #eef2f7;
+
+}
+
+
+.research-image-placeholder span {
+
+    color: #cbd5e1;
+
+    font-size: 13px;
+
+    letter-spacing: 1px;
+
+}
+
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+
+
+    .research-area-card {
+
+        grid-template-columns: 1fr;
+
+        gap: 35px;
+
+    }
+
+
+    .research-area-image {
+
+        order: -1;
+
+    }
+
+
+    .research-area-image img,
+    .research-image-placeholder {
+
+        height: auto;
+
+        min-height: 260px;
+
+    }
+
+
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+
+    .research-page {
+
+        padding: 70px 22px 100px;
+
+    }
+
+
+    .research-page h1 {
+
+        font-size: 46px;
+
+    }
+
+
+    .research-page-intro {
+
+        margin-bottom: 55px;
+
+        font-size: 16px;
+
+    }
+
+
+    .research-area-card {
+
+        padding: 26px 24px 30px;
+
+        gap: 28px;
+
+    }
+
+
+    .research-area-number {
+
+        margin-bottom: 20px;
+
+    }
+
+
+    .research-area-content h2 {
+
+        font-size: 24px;
+
+    }
+
+
+    .research-area-summary {
+
+        font-size: 14px;
+
+    }
+
+}
+
+</style>
+
+{{ end }}

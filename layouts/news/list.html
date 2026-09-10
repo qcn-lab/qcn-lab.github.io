@@ -1,0 +1,314 @@
+{{ define "main" }}
+
+<section class="news-page">
+
+    <div class="news-page-container">
+
+
+        <!-- =========================
+             HEADER
+        ========================== -->
+
+        <div class="news-page-label">
+            NEWS & UPDATES
+        </div>
+
+        <h1>
+            News
+        </h1>
+
+        <p class="news-page-intro">
+            Latest news, research highlights, group activities,
+            and academic updates from QCN Research Group.
+        </p>
+
+
+
+        <!-- =========================
+             NEWS LIST
+        ========================== -->
+
+        <div class="news-page-list">
+
+            {{ range .RegularPages.ByDate.Reverse }}
+
+            <a
+                href="{{ .RelPermalink }}"
+                class="news-page-item"
+            >
+
+                <!-- Date -->
+
+                <div class="news-page-date">
+
+                    {{ with .Params.display_date }}
+
+                        {{ . }}
+
+                    {{ else }}
+
+                        {{ .Date.Format "JAN 2006" }}
+
+                    {{ end }}
+
+                </div>
+
+
+                <!-- Content -->
+
+                <div class="news-page-content">
+
+                    <h2>
+                        {{ .Title }}
+                    </h2>
+
+                    {{ with .Params.summary }}
+
+                    <p>
+                        {{ . }}
+                    </p>
+
+                    {{ end }}
+
+                </div>
+
+
+                <!-- Arrow -->
+
+                <div class="news-page-arrow">
+                    →
+                </div>
+
+            </a>
+
+            {{ end }}
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<style>
+
+/* =========================================
+   NEWS PAGE
+========================================= */
+
+.news-page {
+
+    padding: 90px 32px 130px;
+
+    background: #ffffff;
+
+}
+
+
+.news-page-container {
+
+    width: 100%;
+
+    max-width: 1150px;
+
+    margin: 0 auto;
+
+}
+
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.news-page-label {
+
+    margin-bottom: 16px;
+
+    color: #2563eb;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+}
+
+
+.news-page h1 {
+
+    margin: 0 0 18px;
+
+    color: #0f172a;
+
+    font-size: 64px;
+
+    line-height: 1.05;
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+
+}
+
+
+.news-page-intro {
+
+    max-width: 700px;
+
+    margin: 0 0 75px;
+
+    color: #64748b;
+
+    font-size: 18px;
+
+    line-height: 1.7;
+
+}
+
+
+
+/* =========================================
+   NEWS LIST
+========================================= */
+
+.news-page-list {
+
+    border-top: 1px solid #cbd5e1;
+
+}
+
+
+.news-page-item {
+
+    display: grid;
+
+    grid-template-columns: 150px 1fr 50px;
+
+    gap: 35px;
+
+    align-items: center;
+
+    padding: 34px 0;
+
+    border-bottom: 1px solid #cbd5e1;
+
+    text-decoration: none;
+
+    transition: 0.2s ease;
+
+}
+
+
+.news-page-item:hover {
+
+    padding-left: 8px;
+
+}
+
+
+.news-page-date {
+
+    color: #2563eb;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+.news-page-content h2 {
+
+    margin: 0 0 8px;
+
+    color: #0f172a;
+
+    font-size: 22px;
+
+    line-height: 1.4;
+
+    font-weight: 500;
+
+}
+
+
+.news-page-content p {
+
+    max-width: 750px;
+
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+}
+
+
+.news-page-arrow {
+
+    color: #64748b;
+
+    font-size: 22px;
+
+    text-align: right;
+
+}
+
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 750px) {
+
+    .news-page {
+
+        padding: 70px 24px 100px;
+
+    }
+
+
+    .news-page h1 {
+
+        font-size: 48px;
+
+    }
+
+
+    .news-page-intro {
+
+        margin-bottom: 55px;
+
+    }
+
+
+    .news-page-item {
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+    }
+
+
+    .news-page-arrow {
+
+        display: none;
+
+    }
+
+}
+
+</style>
+
+{{ end }}

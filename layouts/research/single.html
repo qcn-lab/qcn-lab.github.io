@@ -1,0 +1,351 @@
+{{ define "main" }}
+
+<article class="research-detail">
+
+    <div class="research-detail-container">
+
+
+        <!-- =================================================
+             BACK
+        ================================================== -->
+
+        <a
+            href="{{ "/research/" | relURL }}"
+            class="research-back"
+        >
+            ← Back to Research
+        </a>
+
+
+
+        <!-- =================================================
+             HEADER
+        ================================================== -->
+
+        <div class="research-detail-label">
+            RESEARCH AREA
+        </div>
+
+
+        <h1>
+            {{ .Title }}
+        </h1>
+
+
+
+        <!-- =================================================
+             HERO IMAGE
+        ================================================== -->
+
+        {{ with .Params.image }}
+
+        <div class="research-detail-image">
+
+            <img
+                src="{{ . | relURL }}"
+                alt="{{ $.Title }}"
+            >
+
+        </div>
+
+        {{ end }}
+
+
+
+        <!-- =================================================
+             ARTICLE
+        ================================================== -->
+
+        <div class="research-detail-content">
+
+            {{ if .Content }}
+
+                {{ .Content }}
+
+            {{ else }}
+
+                <p class="coming-soon">
+                    Detailed information will be available soon.
+                </p>
+
+            {{ end }}
+
+        </div>
+
+
+    </div>
+
+</article>
+
+
+
+<style>
+
+
+/* =========================================================
+   PAGE
+========================================================= */
+
+.research-detail {
+
+    padding: 90px 32px 130px;
+
+    background: #ffffff;
+
+}
+
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.research-detail-container {
+
+    width: 100%;
+
+    max-width: 1050px;
+
+    margin: 0 auto;
+
+}
+
+
+
+/* =========================================================
+   BACK
+========================================================= */
+
+.research-back {
+
+    display: inline-block;
+
+    margin-bottom: 60px;
+
+    color: #2563eb;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+}
+
+
+.research-back:hover {
+
+    text-decoration: underline;
+
+}
+
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.research-detail-label {
+
+    margin-bottom: 18px;
+
+    color: #2563eb;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+}
+
+
+
+.research-detail h1 {
+
+    max-width: 900px;
+
+    margin: 0 0 50px;
+
+    color: #0f172a;
+
+    font-size: 58px;
+
+    line-height: 1.08;
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+
+}
+
+
+
+/* =========================================================
+   IMAGE
+========================================================= */
+
+/*
+   Keep the image exactly aligned
+   with the article text below.
+*/
+
+.research-detail-image {
+
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: 0 0 65px 0;
+
+    overflow: hidden;
+
+}
+
+
+
+.research-detail-image img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+}
+
+
+
+/* =========================================================
+   ARTICLE
+========================================================= */
+
+/*
+   Same width as the image:
+   850px
+*/
+
+.research-detail-content {
+
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: 0;
+
+    color: #475569;
+
+    font-size: 17px;
+
+    line-height: 1.95;
+
+}
+
+
+
+.research-detail-content p {
+
+    margin: 0 0 30px;
+
+}
+
+
+
+.research-detail-content p:first-child {
+
+    color: #334155;
+
+    font-size: 18px;
+
+}
+
+
+
+.research-detail-content p:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+
+.coming-soon {
+
+    color: #94a3b8;
+
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+
+    .research-detail {
+
+        padding: 70px 24px 100px;
+
+    }
+
+
+
+    .research-back {
+
+        margin-bottom: 45px;
+
+    }
+
+
+
+    .research-detail h1 {
+
+        margin-bottom: 40px;
+
+        font-size: 42px;
+
+        line-height: 1.12;
+
+    }
+
+
+
+    .research-detail-image {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        margin-bottom: 45px;
+
+    }
+
+
+
+    .research-detail-content {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        font-size: 16px;
+
+        line-height: 1.85;
+
+    }
+
+
+
+    .research-detail-content p:first-child {
+
+        font-size: 17px;
+
+    }
+
+}
+
+</style>
+
+{{ end }}

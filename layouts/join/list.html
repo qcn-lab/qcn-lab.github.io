@@ -1,0 +1,272 @@
+{{ define "main" }}
+
+<section class="join-page">
+
+    <div class="join-container">
+
+        <!-- =========================================
+             PAGE HEADER
+        ========================================== -->
+
+        <div class="join-label">
+            JOIN OUR TEAM
+        </div>
+
+        <h1>
+            Join Us
+        </h1>
+
+
+        <!-- =========================================
+             OPEN POSITIONS
+        ========================================== -->
+
+        <div class="positions-section">
+
+            <h2>
+                Open Positions
+            </h2>
+
+
+            <div class="position-card">
+
+                <h3>
+                    General Application Information
+                </h3>
+
+
+                <p>
+                    If you are interested in joining our group as an
+                    undergraduate intern, PhD student, or postdoctoral
+                    researcher, we welcome your application.
+                </p>
+
+
+                <p>
+                    We offer opportunities to work on state-of-the-art
+                    experiments in a collaborative international team,
+                    and we value motivation, reliability, and scientific
+                    curiosity.
+                </p>
+
+
+                <p>
+                    External applicants can contact us directly at
+                    <a href="mailto:kongxiangjin@fudan.edu.cn">
+                        kongxiangjin@fudan.edu.cn
+                    </a>.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<style>
+
+/* =========================================
+   JOIN PAGE
+========================================= */
+
+.join-page {
+
+    padding: 90px 32px 130px;
+
+    background: #ffffff;
+
+}
+
+
+.join-container {
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.join-label {
+
+    margin-bottom: 16px;
+
+    color: #2563eb;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+}
+
+
+.join-page h1 {
+
+    margin: 0 0 80px;
+
+    color: #0f172a;
+
+    font-size: 64px;
+
+    line-height: 1.05;
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+
+}
+
+
+/* =========================================
+   OPEN POSITIONS
+========================================= */
+
+.positions-section h2 {
+
+    margin: 0 0 32px;
+
+    color: #1e293b;
+
+    font-size: 28px;
+
+    font-weight: 600;
+
+}
+
+
+/* =========================================
+   APPLICATION CARD
+========================================= */
+
+.position-card {
+
+    width: 100%;
+
+    padding: 36px 36px 40px;
+
+    background: #ffffff;
+
+    border: 1px solid #edf1f5;
+
+    border-radius: 10px;
+
+    box-shadow:
+        0 5px 20px rgba(15, 23, 42, 0.08);
+
+}
+
+
+.position-card h3 {
+
+    margin: 0 0 20px;
+
+    color: #082f5c;
+
+    font-size: 19px;
+
+    line-height: 1.4;
+
+    font-weight: 700;
+
+}
+
+
+.position-card p {
+
+    margin: 0 0 18px;
+
+    color: #334155;
+
+    font-size: 16px;
+
+    line-height: 1.8;
+
+}
+
+
+.position-card p:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+/* =========================================
+   EMAIL
+========================================= */
+
+.position-card a {
+
+    color: #2563eb;
+
+    text-decoration: none;
+
+}
+
+
+.position-card a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 750px) {
+
+    .join-page {
+
+        padding: 70px 24px 100px;
+
+    }
+
+
+    .join-page h1 {
+
+        margin-bottom: 60px;
+
+        font-size: 48px;
+
+    }
+
+
+    .positions-section h2 {
+
+        font-size: 24px;
+
+    }
+
+
+    .position-card {
+
+        padding: 28px 24px 32px;
+
+    }
+
+
+    .position-card p {
+
+        font-size: 15px;
+
+    }
+
+}
+
+</style>
+
+{{ end }}

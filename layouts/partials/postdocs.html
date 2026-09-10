@@ -1,0 +1,288 @@
+<section class="phd-page">
+
+    <div class="phd-container">
+    
+        <div class="phd-label">
+            PEOPLE
+        </div>
+    
+        <h1>Postdoctoral Researchers</h1>
+    
+        <p class="phd-intro">
+            Meet the postdoctoral researchers of QCN Lab.
+        </p>
+    
+    
+        <div class="student-list">
+    
+        {{ range .Pages.ByWeight }}
+    
+            <article class="student-card">
+    
+                <div class="student-photo">
+    
+                    {{ with .Params.photo }}
+    
+                        <img src="{{ . | relURL }}" alt="{{ $.Title }}">
+    
+                    {{ else }}
+    
+                        <div class="photo-placeholder">
+                            Photo
+                        </div>
+    
+                    {{ end }}
+    
+                </div>
+    
+    
+                <div class="student-info">
+    
+                    <h2>{{ .Title }}</h2>
+    
+                    <div class="student-position">
+                        {{ .Params.position }}
+                        {{ with .Params.cohort }}
+                        <span class="student-cohort"> · {{ . }} Cohort</span>
+                        {{ end }}
+                    </div>
+    
+    
+                    {{ with .Params.email }}
+    
+                    <div class="student-block">
+    
+                        <div class="student-heading">
+                            Email
+                        </div>
+    
+                        <a href="mailto:{{ . }}">
+                            {{ . }}
+                        </a>
+    
+                    </div>
+    
+                    {{ end }}
+    
+    
+                    {{ with .Params.research }}
+    
+                    <div class="student-block">
+    
+                        <div class="student-heading">
+                            Research Interests
+                        </div>
+    
+                        <div class="research-tags">
+    
+                            {{ range . }}
+    
+                            <span>{{ . }}</span>
+    
+                            {{ end }}
+    
+                        </div>
+    
+                    </div>
+    
+                    {{ end }}
+    
+    
+                    {{ with .Params.publications }}
+    
+                    <div class="student-block">
+    
+                        <div class="student-heading">
+                            Representative Publications
+                        </div>
+    
+                        <div class="publication-list">
+    
+                            {{ range . }}
+    
+                            <div class="publication-item">
+    
+                                <div class="publication-title">
+                                    {{ .title }}
+                                </div>
+    
+                                <div class="publication-meta">
+                                    {{ .journal }}
+                                    {{ with .year }}
+                                        · {{ . }}
+                                    {{ end }}
+                                </div>
+    
+                            </div>
+    
+                            {{ end }}
+    
+                        </div>
+    
+                    </div>
+    
+                    {{ end }}
+    
+                </div>
+    
+            </article>
+    
+        {{ else }}
+    
+            <p>No postdoctoral researchers have been added yet.</p>
+    
+        {{ end }}
+    
+        </div>
+    
+    </div>
+    
+    </section>
+    
+    
+    <style>
+    
+    .phd-page {
+        padding: 80px 32px 120px;
+        background: #ffffff;
+    }
+    
+    .phd-container {
+        max-width: 1150px;
+        margin: 0 auto;
+    }
+    
+    .phd-label {
+        color: #2563eb;
+        font-size: 13px;
+        font-weight: 700;
+        letter-spacing: 3px;
+        margin-bottom: 14px;
+    }
+    
+    .phd-page h1 {
+        font-size: 58px;
+        font-weight: 500;
+        margin-bottom: 14px;
+        color: #0f172a;
+    }
+    
+    .phd-intro {
+        color: #64748b;
+        font-size: 18px;
+        margin-bottom: 65px;
+    }
+    
+    .student-list {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .student-card {
+        display: grid;
+        grid-template-columns: 230px 1fr;
+        gap: 42px;
+    
+        padding: 40px 0;
+    
+        border-top: 1px solid #e2e8f0;
+    }
+    
+    .student-photo {
+        width: 230px;
+        height: 290px;
+    
+        background: #f1f5f9;
+        overflow: hidden;
+    }
+    
+    .student-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .photo-placeholder {
+        width: 100%;
+        height: 100%;
+    
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    
+        color: #94a3b8;
+    }
+    
+    .student-info h2 {
+        font-size: 31px;
+        font-weight: 500;
+        margin-bottom: 3px;
+    }
+    
+    .student-position {
+        color: #64748b;
+        margin-bottom: 28px;
+    }
+    
+    .student-block {
+        margin-top: 25px;
+    }
+    
+    .student-heading {
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 1.3px;
+    
+        color: #64748b;
+    
+        margin-bottom: 9px;
+    }
+    
+    .student-block a {
+        color: #2563eb;
+    }
+    
+    .research-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+    
+    .research-tags span {
+        background: #f1f5f9;
+        padding: 6px 10px;
+        border-radius: 4px;
+        font-size: 13px;
+    }
+    
+    .publication-list {
+        display: flex;
+        flex-direction: column;
+        gap: 13px;
+    }
+    
+    .publication-item {
+        border-left: 2px solid #cbd5e1;
+        padding-left: 14px;
+    }
+    
+    .publication-title {
+        font-size: 15px;
+    }
+    
+    .publication-meta {
+        font-size: 13px;
+        color: #64748b;
+        margin-top: 3px;
+    }
+    
+    @media (max-width: 750px) {
+    
+        .student-card {
+            grid-template-columns: 1fr;
+        }
+    
+    }
+    
+    </style>

@@ -1,0 +1,205 @@
+{{ define "main" }}
+
+<section class="phd-page">
+
+    <div class="container">
+
+        <p class="label">PEOPLE</p>
+
+        <h1>PhD Students</h1>
+
+        <p class="intro">
+            Meet the doctoral researchers of QCN Lab.
+        </p>
+
+
+        {{ range .Pages.ByWeight }}
+
+        <div class="student-card">
+
+            <div class="student-photo">
+
+                {{ with .Params.photo }}
+                    <img src="{{ . | relURL }}" alt="{{ $.Title }}">
+                {{ else }}
+                    <div class="placeholder">Photo</div>
+                {{ end }}
+
+            </div>
+
+
+            <div class="student-info">
+
+                <h2>{{ .Title }}</h2>
+
+                <p class="position">
+                    {{ .Params.position }}
+                </p>
+
+
+                {{ with .Params.email }}
+
+                <div class="block">
+                    <strong>Email</strong><br>
+                    <a href="mailto:{{ . }}">{{ . }}</a>
+                </div>
+
+                {{ end }}
+
+
+                {{ with .Params.research }}
+
+                <div class="block">
+
+                    <strong>Research Interests</strong>
+
+                    <ul>
+                        {{ range . }}
+                        <li>{{ . }}</li>
+                        {{ end }}
+                    </ul>
+
+                </div>
+
+                {{ end }}
+
+
+                {{ with .Params.publications }}
+
+                <div class="block">
+
+                    <strong>Representative Publications</strong>
+
+                    <ul>
+
+                        {{ range . }}
+
+                        <li>
+                            {{ .title }}
+                            — {{ .journal }}
+                            {{ with .year }} ({{ . }}) {{ end }}
+                        </li>
+
+                        {{ end }}
+
+                    </ul>
+
+                </div>
+
+                {{ end }}
+
+            </div>
+
+        </div>
+
+        {{ else }}
+
+        <p class="warning">
+            No PhD student data found.
+        </p>
+
+        {{ end }}
+
+    </div>
+
+</section>
+
+
+<style>
+
+.phd-page {
+    padding: 70px 40px 120px;
+}
+
+.container {
+    max-width: 1150px;
+    margin: 0 auto;
+}
+
+.label {
+    color: #2563eb;
+    font-weight: 700;
+    letter-spacing: 2px;
+    font-size: 13px;
+}
+
+.phd-page h1 {
+    font-size: 56px;
+    margin: 10px 0 10px;
+}
+
+.intro {
+    color: #64748b;
+    font-size: 18px;
+    margin-bottom: 60px;
+}
+
+.student-card {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    gap: 40px;
+
+    padding: 35px 0;
+
+    border-top: 1px solid #e2e8f0;
+}
+
+.student-photo {
+    width: 230px;
+    height: 280px;
+    background: #f1f5f9;
+}
+
+.student-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.placeholder {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #94a3b8;
+}
+
+.student-info h2 {
+    font-size: 30px;
+    margin-bottom: 4px;
+}
+
+.position {
+    color: #64748b;
+    margin-bottom: 25px;
+}
+
+.block {
+    margin-top: 22px;
+    line-height: 1.7;
+}
+
+.block strong {
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.block a {
+    color: #2563eb;
+}
+
+.block ul {
+    margin-top: 8px;
+    padding-left: 20px;
+}
+
+.warning {
+    padding: 30px;
+    background: #fff7ed;
+    color: #9a3412;
+}
+
+</style>
+
+{{ end }}

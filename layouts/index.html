@@ -1,0 +1,1422 @@
+{{ define "main" }}
+
+<!-- =========================================================
+     HERO
+========================================================= -->
+
+<section class="hero">
+
+    <img
+        class="hero-main-image"
+        src="{{ "/images/home/hero-kong-group.png" | relURL }}"
+        alt="QCN Research Group"
+    >
+
+</section>
+
+
+
+<!-- =========================================================
+     WELCOME / ABOUT
+========================================================= -->
+
+<section class="welcome" id="about">
+
+    <div class="section-container">
+
+        <div class="section-label welcome-label">
+            ABOUT THE GROUP
+        </div>
+
+        <h2 class="welcome-title">
+            Welcome to QCN Research Group
+        </h2>
+
+
+        <div class="welcome-grid">
+
+            <!-- Left text -->
+
+            <div class="welcome-text">
+
+                <p>
+                    Our research group explores the frontiers of quantum optics
+                    and light–matter interactions along three complementary
+                    directions: nuclear quantum optics, quantum-dot experimental
+                    platforms, and AI-driven methodologies.
+                </p>
+
+                <p>
+                    We are committed to advancing quantum science and training
+                    the next generation of researchers.
+                </p>
+
+                <p>
+                    Led by Prof. Xiangjin Kong, our team integrates expertise in
+                    theoretical quantum optics, experimental photonics, and
+                    artificial intelligence to push the boundaries of quantum optics.
+                </p>
+
+            </div>
+
+
+            <!-- Right image -->
+
+            <div class="welcome-image">
+
+                <img
+                    src="{{ "/images/home/about-quantum-optics.png" | relURL }}"
+                    alt="Quantum optics research at QCN Research Group"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     LATEST NEWS
+========================================================= -->
+
+<section class="news-section">
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="section-label">
+                    NEWS
+                </div>
+
+                <h2>
+                    Latest News
+                </h2>
+
+            </div>
+
+
+            <a
+                href="{{ "/news/" | relURL }}"
+                class="view-all"
+            >
+                View All News →
+            </a>
+
+        </div>
+
+
+        <!-- Automatically load latest news -->
+
+        {{ $news := where site.RegularPages "Section" "news" }}
+
+
+        <div class="news-list">
+
+            {{ range first 3 $news.ByDate.Reverse }}
+
+            <a
+                href="{{ .RelPermalink }}"
+                class="news-item"
+            >
+
+                <!-- Date -->
+
+                <div class="news-date">
+
+                    {{ if .Params.display_date }}
+
+                        {{ .Params.display_date }}
+
+                    {{ else }}
+
+                        {{ .Date.Format "JAN 2006" }}
+
+                    {{ end }}
+
+                </div>
+
+
+                <!-- Content -->
+
+                <div class="news-content">
+
+                    <h3>
+                        {{ .Title }}
+                    </h3>
+
+                    {{ with .Params.summary }}
+
+                    <p>
+                        {{ . }}
+                    </p>
+
+                    {{ end }}
+
+                </div>
+
+
+                <!-- Arrow -->
+
+                <div class="news-arrow">
+                    →
+                </div>
+
+            </a>
+
+            {{ end }}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     RESEARCH AREAS
+========================================================= -->
+
+<section class="research-section">
+
+    <div class="section-container">
+
+        <div class="section-label">
+            RESEARCH
+        </div>
+
+        <h2>
+            Research Areas
+        </h2>
+
+
+        <div class="research-grid">
+
+
+            <!-- Research 01 -->
+
+            <div class="research-card">
+
+                <div class="research-number">
+                    01
+                </div>
+
+                <h3>
+                    Nuclear Quantum Optics
+                </h3>
+
+                <p>
+                    Exploring quantum optical phenomena, collective nuclear
+                    excitations, and light–matter interactions in nuclear systems.
+                </p>
+
+            </div>
+
+
+            <!-- Research 02 -->
+
+            <div class="research-card">
+
+                <div class="research-number">
+                    02
+                </div>
+
+                <h3>
+                    Quantum-Dot Experimental Platforms
+                </h3>
+
+                <p>
+                    Developing quantum-dot based experimental platforms for
+                    investigating quantum optical effects and controlling
+                    light–matter interactions.
+                </p>
+
+            </div>
+
+
+            <!-- Research 03 -->
+
+            <div class="research-card">
+
+                <div class="research-number">
+                    03
+                </div>
+
+                <h3>
+                    AI-Driven Methodologies
+                </h3>
+
+                <p>
+                    Integrating artificial intelligence with quantum science
+                    for modeling, optimization, automated discovery, and
+                    intelligent experimental design.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     RECENT PUBLICATIONS
+========================================================= -->
+
+<section class="publications-section">
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div>
+
+                <div class="section-label">
+                    PUBLICATIONS
+                </div>
+
+                <h2>
+                    Recent Publications
+                </h2>
+
+            </div>
+
+
+            <a
+                href="{{ "/publications/" | relURL }}"
+                class="view-all"
+            >
+                View All Publications →
+            </a>
+
+        </div>
+
+
+
+        <!-- Get publications -->
+
+        {{ $publications := where site.RegularPages "Section" "publications" }}
+
+
+        <!-- Collect years -->
+
+        {{ $years := slice }}
+
+        {{ range $publications }}
+
+            {{ with .Params.pubyear }}
+
+                {{ $years = $years | append . }}
+
+            {{ end }}
+
+        {{ end }}
+
+
+        <!-- Sort newest to oldest -->
+
+        {{ $years = $years | uniq | sort | collections.Reverse }}
+
+
+        <!-- Build ordered list -->
+
+        {{ $recent := slice }}
+
+        {{ range $years }}
+
+            {{ $year := . }}
+
+            {{ $papers := where $publications "Params.pubyear" $year }}
+
+            {{ range $papers.ByWeight }}
+
+                {{ $recent = $recent | append . }}
+
+            {{ end }}
+
+        {{ end }}
+
+
+
+        <!-- Display latest 3 -->
+
+        <div class="publication-list">
+
+            {{ range first 3 $recent }}
+
+            <article class="publication-item">
+
+
+                <!-- Year -->
+
+                <div class="publication-year">
+
+                    {{ .Params.pubyear }}
+
+                </div>
+
+
+                <!-- Information -->
+
+                <div class="publication-content">
+
+                    <h3>
+                        {{ .Title }}
+                    </h3>
+
+
+                    <!-- Authors -->
+
+                    {{ with .Params.authors }}
+
+                    <p class="home-pub-authors">
+                        {{ . }}
+                    </p>
+
+                    {{ end }}
+
+
+                    <!-- Journal -->
+
+                    <p class="home-pub-journal">
+
+                        {{ with .Params.journal }}
+
+                            <span>
+                                {{ . }}
+                            </span>
+
+                        {{ end }}
+
+
+                        {{ with .Params.volume }}
+
+                            <strong>
+                                {{ . }}
+                            </strong>
+
+                        {{ end }}
+
+
+                        {{ with .Params.pages }}
+
+                            <span>
+                                , {{ . }}
+                            </span>
+
+                        {{ end }}
+
+
+                        {{ with .Params.pubyear }}
+
+                            <span>
+                                ({{ . }})
+                            </span>
+
+                        {{ end }}
+
+                    </p>
+
+
+                    <!-- DOI -->
+
+                    {{ with .Params.doi }}
+
+                    <p class="home-pub-doi">
+                        DOI: {{ . }}
+                    </p>
+
+                    {{ end }}
+
+                </div>
+
+            </article>
+
+            {{ end }}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     CONTACT
+========================================================= -->
+
+<section class="home-contact">
+
+    <div class="section-container contact-grid">
+
+
+        <!-- Left -->
+
+        <div>
+
+            <div class="section-label light-label">
+                QCN RESEARCH GROUP
+            </div>
+
+            <h2>
+                Quantum science through
+                light–matter interaction.
+            </h2>
+
+        </div>
+
+
+        <!-- Right -->
+
+        <div class="contact-info">
+
+            <div class="contact-block">
+
+                <div class="contact-title">
+                    Contact
+                </div>
+
+                <p>
+                    Department of Physics<br>
+                    Fudan University<br>
+                    Shanghai, China
+                </p>
+
+            </div>
+
+
+            <div class="contact-block">
+
+                <div class="contact-title">
+                    Email
+                </div>
+
+                <p>
+                    kongxiangjin@fudan.edu.cn
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================================================
+     HOME CSS
+========================================================= -->
+
+<style>
+
+
+/* =========================================================
+   SHARED
+========================================================= */
+
+.section-container {
+
+    width: 100%;
+
+    max-width: 1200px;
+
+    margin: 0 auto;
+
+}
+
+
+.section-label {
+
+    color: #2563eb;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    margin-bottom: 18px;
+
+}
+
+
+.section-heading {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-end;
+
+    gap: 30px;
+
+    margin-bottom: 50px;
+
+}
+
+
+.section-heading h2,
+.research-section h2 {
+
+    margin: 0;
+
+    color: #0f172a;
+
+    font-size: 44px;
+
+    font-weight: 500;
+
+    letter-spacing: -1.5px;
+
+}
+
+
+.view-all {
+
+    color: #2563eb;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    text-decoration: none;
+
+}
+
+
+.view-all:hover {
+
+    text-decoration: underline;
+
+}
+
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    background: #eef3f7;
+
+}
+
+
+.hero-main-image {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+}
+
+
+
+/* =========================================================
+   WELCOME / ABOUT
+========================================================= */
+
+.welcome {
+
+    padding: 100px 32px 115px;
+
+    background: #ffffff;
+
+}
+
+
+
+/* ---------------------------------------------------------
+   Label
+--------------------------------------------------------- */
+
+.welcome-label {
+
+    margin-bottom: 18px;
+
+    text-align: center;
+
+}
+
+
+
+/* ---------------------------------------------------------
+   Main title
+--------------------------------------------------------- */
+
+.welcome-title {
+
+    width: 100%;
+
+    margin: 0 0 60px;
+
+    text-align: center;
+
+    color: #0f172a;
+
+    font-size: 52px;
+
+    line-height: 1.08;
+
+    font-weight: 500;
+
+    letter-spacing: -2px;
+
+}
+
+
+
+/* ---------------------------------------------------------
+   Text + image
+--------------------------------------------------------- */
+
+.welcome-grid {
+
+    display: grid;
+
+    grid-template-columns: 0.9fr 1.1fr;
+
+    gap: 65px;
+
+    align-items: center;
+
+}
+
+
+
+/* ---------------------------------------------------------
+   Left text
+--------------------------------------------------------- */
+
+.welcome-text {
+
+    min-width: 0;
+
+}
+
+
+.welcome-text p {
+
+    margin: 0 0 26px;
+
+    color: #64748b;
+
+    font-size: 16.5px;
+
+    line-height: 1.9;
+
+}
+
+
+.welcome-text p:last-child {
+
+    margin-bottom: 0;
+
+}
+
+
+
+/* ---------------------------------------------------------
+   Right image
+--------------------------------------------------------- */
+
+.welcome-image {
+
+    width: 100%;
+
+    overflow: hidden;
+
+    background: #061327;
+
+    box-shadow:
+        0 20px 55px rgba(15, 23, 42, 0.13);
+
+}
+
+
+/*
+   Important:
+   show the COMPLETE image.
+   Do not crop the left or right sides.
+*/
+
+.welcome-image img {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    object-fit: contain;
+
+}
+
+
+
+/* =========================================================
+   NEWS
+========================================================= */
+
+.news-section {
+
+    padding: 110px 32px;
+
+    background: #f8fafc;
+
+}
+
+
+.news-list {
+
+    border-top: 1px solid #cbd5e1;
+
+}
+
+
+.news-item {
+
+    display: grid;
+
+    grid-template-columns: 150px 1fr 40px;
+
+    gap: 30px;
+
+    align-items: center;
+
+    padding: 30px 0;
+
+    border-bottom: 1px solid #cbd5e1;
+
+    text-decoration: none;
+
+    color: inherit;
+
+    transition:
+        padding-left 0.2s ease,
+        background 0.2s ease;
+
+}
+
+
+.news-item:hover {
+
+    padding-left: 8px;
+
+}
+
+
+.news-date {
+
+    color: #2563eb;
+
+    font-size: 12px;
+
+    font-weight: 700;
+
+    letter-spacing: 1px;
+
+}
+
+
+.news-content h3 {
+
+    margin: 0 0 6px;
+
+    color: #0f172a;
+
+    font-size: 21px;
+
+    line-height: 1.4;
+
+    font-weight: 500;
+
+}
+
+
+.news-content p {
+
+    max-width: 800px;
+
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 14px;
+
+    line-height: 1.7;
+
+}
+
+
+.news-arrow {
+
+    color: #64748b;
+
+    font-size: 22px;
+
+    text-align: right;
+
+}
+
+
+
+/* =========================================================
+   RESEARCH
+========================================================= */
+
+.research-section {
+
+    padding: 115px 32px;
+
+}
+
+
+.research-section h2 {
+
+    margin-bottom: 55px;
+
+}
+
+
+.research-grid {
+
+    display: grid;
+
+    grid-template-columns: repeat(3, 1fr);
+
+    gap: 20px;
+
+}
+
+
+.research-card {
+
+    min-height: 310px;
+
+    padding: 35px;
+
+    border: 1px solid #e2e8f0;
+
+    background: #ffffff;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.research-card:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 35px rgba(15, 23, 42, 0.07);
+
+}
+
+
+.research-number {
+
+    margin-bottom: 60px;
+
+    color: #2563eb;
+
+    font-size: 13px;
+
+}
+
+
+.research-card h3 {
+
+    margin: 0 0 18px;
+
+    color: #0f172a;
+
+    font-size: 24px;
+
+    line-height: 1.3;
+
+    font-weight: 500;
+
+}
+
+
+.research-card p {
+
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 15px;
+
+    line-height: 1.75;
+
+}
+
+
+
+/* =========================================================
+   PUBLICATIONS
+========================================================= */
+
+.publications-section {
+
+    padding: 110px 32px;
+
+    background: #f8fafc;
+
+}
+
+
+.publication-list {
+
+    border-top: 1px solid #cbd5e1;
+
+}
+
+
+.publication-item {
+
+    display: grid;
+
+    grid-template-columns: 110px 1fr;
+
+    gap: 35px;
+
+    padding: 32px 0;
+
+    border-bottom: 1px solid #cbd5e1;
+
+}
+
+
+.publication-year {
+
+    padding-top: 4px;
+
+    color: #2563eb;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+.publication-content h3 {
+
+    max-width: 900px;
+
+    margin: 0 0 10px;
+
+    color: #0f172a;
+
+    font-size: 20px;
+
+    line-height: 1.45;
+
+    font-weight: 500;
+
+}
+
+
+.home-pub-authors {
+
+    max-width: 900px;
+
+    margin: 0 0 5px;
+
+    color: #475569;
+
+    font-size: 14px;
+
+    line-height: 1.65;
+
+}
+
+
+.home-pub-journal {
+
+    margin: 0 0 4px;
+
+    color: #64748b;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+}
+
+
+.home-pub-journal strong {
+
+    margin-left: 3px;
+
+    color: #475569;
+
+    font-weight: 600;
+
+}
+
+
+.home-pub-doi {
+
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    line-height: 1.6;
+
+}
+
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.home-contact {
+
+    padding: 100px 32px;
+
+    background: #071426;
+
+    color: #ffffff;
+
+}
+
+
+.contact-grid {
+
+    display: grid;
+
+    grid-template-columns: 1.3fr 1fr;
+
+    gap: 80px;
+
+}
+
+
+.light-label {
+
+    color: #7dd3fc;
+
+}
+
+
+.home-contact h2 {
+
+    max-width: 650px;
+
+    margin: 0;
+
+    font-size: 46px;
+
+    line-height: 1.15;
+
+    font-weight: 500;
+
+    letter-spacing: -1.5px;
+
+}
+
+
+.contact-info {
+
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 40px;
+
+}
+
+
+.contact-title {
+
+    margin-bottom: 14px;
+
+    color: #ffffff;
+
+    font-weight: 600;
+
+}
+
+
+.contact-block p {
+
+    margin: 0;
+
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1000px) {
+
+    .welcome-title {
+
+        font-size: 46px;
+
+    }
+
+
+    .welcome-grid {
+
+        gap: 45px;
+
+    }
+
+
+    .research-grid {
+
+        grid-template-columns: 1fr 1fr;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   RESPONSIVE — SMALL TABLET
+========================================================= */
+
+@media (max-width: 850px) {
+
+    .welcome-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 42px;
+
+    }
+
+
+    .welcome-image {
+
+        width: 100%;
+
+    }
+
+
+    .welcome-image img {
+
+        width: 100%;
+
+        height: auto;
+
+        object-fit: contain;
+
+    }
+
+
+    .research-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .contact-grid {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+    }
+
+
+    .news-item {
+
+        grid-template-columns: 100px 1fr;
+
+    }
+
+
+    .news-arrow {
+
+        display: none;
+
+    }
+
+
+    .publication-item {
+
+        grid-template-columns: 75px 1fr;
+
+        gap: 20px;
+
+    }
+
+
+    .hero-main-image {
+
+        width: 100%;
+
+        height: auto;
+
+    }
+
+}
+
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 650px) {
+
+    .welcome,
+    .news-section,
+    .research-section,
+    .publications-section,
+    .home-contact {
+
+        padding-left: 22px;
+
+        padding-right: 22px;
+
+    }
+
+
+    .section-heading {
+
+        display: block;
+
+    }
+
+
+    .section-heading .view-all {
+
+        display: inline-block;
+
+        margin-top: 20px;
+
+    }
+
+
+    .section-heading h2,
+    .research-section h2 {
+
+        font-size: 36px;
+
+    }
+
+
+    /* Welcome */
+
+    .welcome {
+
+        padding-top: 80px;
+
+        padding-bottom: 85px;
+
+    }
+
+
+    .welcome-title {
+
+        margin-bottom: 40px;
+
+        font-size: 38px;
+
+        line-height: 1.12;
+
+    }
+
+
+    .welcome-text p {
+
+        font-size: 16px;
+
+        line-height: 1.8;
+
+    }
+
+
+    /* Contact */
+
+    .home-contact h2 {
+
+        font-size: 38px;
+
+    }
+
+
+    .contact-info {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    /* News */
+
+    .news-item {
+
+        grid-template-columns: 1fr;
+
+        gap: 10px;
+
+    }
+
+
+    /* Publications */
+
+    .publication-item {
+
+        grid-template-columns: 1fr;
+
+        gap: 8px;
+
+    }
+
+
+    .publication-year {
+
+        margin-bottom: 4px;
+
+    }
+
+}
+
+</style>
+
+{{ end }}

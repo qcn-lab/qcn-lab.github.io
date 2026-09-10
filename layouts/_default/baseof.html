@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>
+        {{ if .IsHome }}
+            QCN Lab
+        {{ else }}
+            {{ .Title }} | QCN Lab
+        {{ end }}
+    </title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: #111827;
+            background: #ffffff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        main {
+            min-height: calc(100vh - 80px);
+            padding-top: 80px;
+        }
+    </style>
+</head>
+
+
+<body>
+
+    {{ partial "header.html" . }}
+
+    <main>
+        {{ block "main" . }}
+        {{ end }}
+    </main>
+
+</body>
+
+</html>
