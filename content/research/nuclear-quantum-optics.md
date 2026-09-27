@@ -1,10 +1,10 @@
 ---
-title: "Nuclear Quantum Optics"
+title: "Quantum Control of Nuclei"
 weight: 1
 
 image: "/images/research/nuclear-quantum-optics.png"
 
-summary: "We explore quantum optical phenomena in the X-ray regime by exploiting resonant interactions between X-ray photons and atomic nuclei, with particular emphasis on X-ray photonic structures, collective nuclear dynamics, and emerging nuclear platforms."
+summary: "We explore nuclear quantum optics and cavity QED, with an emphasis on coherent x-ray–nuclear interactions, collective quantum dynamics, and non-Hermitian and topological phenomena."
 ---
 Light–matter interactions lie at the heart of quantum optics, providing powerful tools for manipulating quantum states, engineering radiative processes, and enhancing the sensitivity of quantum measurements. We aim to extend these concepts into the X-ray regime, where resonant interactions between X-ray photons and atomic nuclei offer a unique platform for exploring quantum dynamics with exceptionally narrow resonances and high spectral precision.
 
