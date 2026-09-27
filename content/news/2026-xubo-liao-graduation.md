@@ -5,7 +5,7 @@ display_date: "JUN 2026"
 
 summary: "Congratulations to Xubo Liao, a master's student of the 2023 cohort, on successfully completing his master's degree."
 
-weight: 1
+weight: 2
 ---
 
 We warmly congratulate **Xubo Liao**, a master's student of the 2023 cohort in the QCN Research Group, on successfully completing his master's degree.
