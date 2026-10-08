@@ -12,5 +12,5 @@ photo: "/images/people/yunyuwang.jpg"
 #   - "Deep Learning"
 #   - "Automated Scientific Discovery"
 
-weight: 8
+weight: 1
 ---

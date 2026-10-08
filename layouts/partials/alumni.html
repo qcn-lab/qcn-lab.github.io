@@ -1,0 +1,141 @@
+
+<section class="alumni-page">
+
+    <div class="alumni-container">
+
+        <div class="alumni-label">
+            QCN LAB / PEOPLE
+        </div>
+
+        <h1>Alumni</h1>
+
+        <p class="alumni-intro">
+            Former students of QCN Research Group.
+        </p>
+
+        <div class="alumni-table-wrap">
+
+            <table class="alumni-table">
+
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Degree</th>
+                        <th>Graduation Year</th>
+                        <th>Destination</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {{ range .RegularPages.ByTitle }}
+                    <tr>
+                        <td class="alumni-name">
+                            {{ .Title }}
+                        </td>
+
+                        <td>
+                            {{ .Params.degree }}
+                        </td>
+
+                        <td>
+                            {{ .Params.graduation_year }}
+                        </td>
+
+                        <td>
+                            {{ .Params.destination }}
+                        </td>
+                    </tr>
+                    {{ end }}
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</section>
+
+<style>
+
+.alumni-page {
+    padding: 95px 32px 120px;
+    background: #ffffff;
+    min-height: 70vh;
+}
+
+.alumni-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.alumni-label {
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: #2563eb;
+    margin-bottom: 18px;
+}
+
+.alumni-page h1 {
+    font-size: 64px;
+    font-weight: 500;
+    letter-spacing: -2px;
+    color: #0f172a;
+    margin-bottom: 18px;
+}
+
+.alumni-intro {
+    font-size: 19px;
+    color: #64748b;
+    margin-bottom: 50px;
+}
+
+.alumni-table-wrap {
+    overflow-x: auto;
+}
+
+.alumni-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.alumni-table th {
+    padding: 18px 20px;
+    background: #f8fafc;
+    color: #334155;
+    font-size: 14px;
+    font-weight: 600;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.alumni-table td {
+    padding: 22px 20px;
+    color: #475569;
+    font-size: 16px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.alumni-table .alumni-name {
+    color: #0f172a;
+    font-weight: 600;
+}
+
+.alumni-table tbody tr:hover {
+    background: #f8fafc;
+}
+
+@media (max-width: 750px) {
+
+    .alumni-page h1 {
+        font-size: 48px;
+    }
+
+    .alumni-table {
+        min-width: 650px;
+    }
+
+}
+
+</style>

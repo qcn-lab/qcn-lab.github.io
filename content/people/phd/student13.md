@@ -1,5 +1,5 @@
 ---
-title: "Hao Yi"
+title: "Yi Hao"
 position: "PhD Student"
 cohort: "2026"
 # photo: "/images/people/kanglesun.jpg"
@@ -10,5 +10,5 @@ cohort: "2026"
 #   - "Laser nuclear physics"
 
 
-weight: 13
+weight: 12
 ---

@@ -12,5 +12,5 @@ research:
   - "Deep Learning"
   - "Automated Scientific Discovery"
 
-weight: 3
+weight: 8
 ---

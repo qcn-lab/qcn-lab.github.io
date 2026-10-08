@@ -10,5 +10,5 @@ cohort: "2026"
 #   - "Laser nuclear physics"
 
 
-weight: 12
+weight: 11
 ---

@@ -1,20 +1,59 @@
 {{ define "main" }}
 
+<!-- Homepage carousel: original animated hero followed by two group photographs. -->
+<link rel="stylesheet" href="{{ "css/qcn-carousel.css" | relURL }}">
+<section class="qcn-photo-carousel" aria-label="QCN Group homepage carousel" aria-roledescription="carousel" tabindex="0">
+  <div class="qcn-carousel-track">
+    <div class="qcn-carousel-slide qcn-carousel-original is-active" aria-hidden="false">
 <!-- =========================================================
      HERO
 ========================================================= -->
 
-<section class="hero">
-
-    <img
-        class="hero-main-image"
-        src="{{ "/images/home/hero-kong-group.png" | relURL }}"
-        alt="QCN Research Group"
-    >
-
+<section class="hero" aria-labelledby="hero-title">
+    <div class="hero-ambient hero-ambient-one" aria-hidden="true"></div>
+    <div class="hero-ambient hero-ambient-two" aria-hidden="true"></div>
+    <div class="hero-layout">
+        <div class="hero-copy">
+            <div class="hero-eyebrow"><span class="hero-pulse"></span> FUDAN UNIVERSITY · RESEARCH GROUP</div>
+            <h1 id="hero-title">Quantum Control<br>of <em>Nuclei</em></h1>
+            <p class="hero-subtitle">Exploring quantum coherence and light–matter interactions across nuclear quantum optics, advanced experiments, and AI-driven discovery.</p>
+            <div class="hero-actions">
+                <a class="hero-primary" href="{{ "/research/" | relURL }}">Explore our research <span aria-hidden="true">↗</span></a>
+                <a class="hero-secondary" href="{{ "/people/" | relURL }}">Meet the group <span aria-hidden="true">→</span></a>
+            </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+            <div class="visual-halo"></div>
+            <div class="visual-ring ring-one"></div>
+            <div class="visual-ring ring-two"></div>
+            <div class="visual-ring ring-three"></div>
+            <div class="visual-center"></div>
+            <div class="visual-satellite satellite-one"></div>
+            <div class="visual-satellite satellite-two"></div>
+            <div class="visual-satellite satellite-three"></div>
+            <span class="visual-note visual-note-one">COHERENCE</span>
+            <span class="visual-note visual-note-two">LIGHT ↔ MATTER</span>
+            <span class="visual-cross">+</span>
+        </div>
+    </div>
+    <div class="hero-bottom"><span>QUANTUM SCIENCE · NUCLEAR OPTICS · AI FOR SCIENCE</span><span>SCROLL TO EXPLORE ↓</span></div>
 </section>
 
 
+
+    </div>
+    <div class="qcn-carousel-slide" aria-hidden="true"><img src="{{ "images/carousel/group-dinner.jpg" | relURL }}" alt="QCN group dinner photo" loading="lazy"></div>
+    <div class="qcn-carousel-slide" aria-hidden="true"><img src="{{ "images/carousel/group-meeting.jpg" | relURL }}" alt="QCN group meeting photo" loading="lazy"></div>
+  </div>
+  <button class="qcn-carousel-arrow qcn-carousel-prev" type="button" aria-label="Previous slide">&#10094;</button>
+  <button class="qcn-carousel-arrow qcn-carousel-next" type="button" aria-label="Next slide">&#10095;</button>
+  <div class="qcn-carousel-dots" aria-label="Choose slide">
+    <button type="button" class="is-active" aria-label="Show slide 1" aria-current="true"></button>
+    <button type="button" aria-label="Show slide 2"></button>
+    <button type="button" aria-label="Show slide 3"></button>
+  </div>
+</section>
+<script src="{{ "js/qcn-carousel.js" | relURL }}" defer></script>
 
 <!-- =========================================================
      WELCOME / ABOUT
@@ -29,7 +68,7 @@
         </div>
 
         <h2 class="welcome-title">
-            Welcome to QCN Research Group
+            Welcome to the Quantum Control of Nuclei (QCN) Group
         </h2>
 
 
@@ -40,21 +79,15 @@
             <div class="welcome-text">
 
                 <p>
-                    Our research group explores the frontiers of quantum optics
-                    and light–matter interactions along three complementary
-                    directions: nuclear quantum optics, quantum-dot experimental
-                    platforms, and AI-driven methodologies.
+                    Led by Prof. Yugang Ma and Prof. Xiangjin Kong, the Quantum Control of Nuclei (QCN) Group investigates fundamental quantum phenomena and develops new approaches for controlling complex quantum systems.
                 </p>
 
                 <p>
-                    We are committed to advancing quantum science and training
-                    the next generation of researchers.
+                    Our research centers on three directions: quantum control of nuclei using synchrotron radiation and XFELs, quantum physics under low-temperature and high-magnetic-field conditions, and AI for Science. 
                 </p>
 
                 <p>
-                    Led by Prof. Xiangjin Kong, our team integrates expertise in
-                    theoretical quantum optics, experimental photonics, and
-                    artificial intelligence to push the boundaries of quantum optics.
+                    By integrating theory, advanced experiments, and artificial intelligence, we aim to expand the frontiers of quantum science and enable new capabilities in quantum control, discovery, and technology.
                 </p>
 
             </div>

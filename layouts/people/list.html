@@ -1,16 +1,21 @@
+
 {{ define "main" }}
 
 {{ if eq .Params.page_kind "phd" }}
 
     {{ partial "phd-students.html" . }}
 
-    {{ else if eq .Params.page_kind "masters" }}
+{{ else if eq .Params.page_kind "masters" }}
 
     {{ partial "masters-students.html" . }}
 
 {{ else if eq .Params.page_kind "postdocs" }}
 
     {{ partial "postdocs.html" . }}
+
+{{ else if eq .Params.page_kind "alumni" }}
+
+    {{ partial "alumni.html" . }}
 
 {{ else }}
 
@@ -54,6 +59,11 @@
                 <p>Master's students working across our research areas.</p>
             </a>
 
+            <a href="{{ "/people/alumni/" | relURL }}" class="group-card">
+                <span>05</span>
+                <h2>Alumni</h2>
+                <p>Former students and their career destinations.</p>
+            </a>
 
         </div>
 
