@@ -5,11 +5,11 @@ cohort: "2026"
 
 photo: "/images/people/tianjunli.jpg"
 
-# email: "postdoc@example.edu"
-
-# research:
-#   - "Research Direction 1"
-#   - "Research Direction 2"
+email: "litianjun@fudan.edu.cn"
+orcid: "https://orcid.org/0000-0002-4391-5257"
+research:
+  - "X-ray Quantum Optics"
+ 
 
 # publications:
 #   - title: "Representative Publication Title"

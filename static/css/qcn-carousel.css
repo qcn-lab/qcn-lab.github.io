@@ -1,5 +1,8 @@
 /* Only homepage carousel; all other page styles remain unchanged. */
-.qcn-photo-carousel{position:relative;width:100%;height:clamp(380px,56vw,780px);overflow:hidden;background:#eaf1f5;isolation:isolate}
+.qcn-cover-shell{padding:30px clamp(24px,5vw,76px) 46px;background:#0e419c}
+.qcn-cover-brand{width:100%;max-width:1320px;margin:0 auto 26px}
+.qcn-cover-brand img{display:block;width:clamp(250px,27vw,390px);height:auto;filter:brightness(0) invert(1)}
+.qcn-photo-carousel{position:relative;width:100%;max-width:1320px;height:clamp(420px,42vw,610px);margin:0 auto;overflow:hidden;background:#eaf1f5;isolation:isolate}
 .qcn-carousel-track,.qcn-carousel-slide{position:absolute;inset:0}
 .qcn-carousel-slide{opacity:0;visibility:hidden;transition:opacity .7s ease,visibility .7s ease}
 .qcn-carousel-slide.is-active{opacity:1;visibility:visible;z-index:1}
@@ -10,7 +13,7 @@
 .qcn-carousel-dots{position:absolute;z-index:3;left:50%;bottom:23px;transform:translateX(-50%);display:flex;align-items:center;gap:11px;padding:10px 15px;border-radius:50px;background:rgba(8,28,44,.35);backdrop-filter:blur(4px)}
 .qcn-carousel-dots button{width:10px;height:10px;min-width:10px;display:block;border:0;border-radius:100px;background:rgba(255,255,255,.5);cursor:pointer;transition:width .25s,background .25s}
 .qcn-carousel-dots button.is-active{width:27px;background:white}
-@media(max-width:650px){.qcn-photo-carousel{height:clamp(300px,76vw,510px)}.qcn-carousel-arrow{width:36px;height:36px;font-size:18px}.qcn-carousel-dots{bottom:15px}.qcn-carousel-slide img{object-position:center center}}
+@media(max-width:650px){.qcn-cover-shell{padding:22px 16px 28px}.qcn-cover-brand{margin-bottom:18px}.qcn-cover-brand img{width:min(78vw,330px)}.qcn-photo-carousel{height:clamp(500px,132vw,650px)}.qcn-carousel-arrow{width:36px;height:36px;font-size:18px}.qcn-carousel-dots{bottom:15px}.qcn-carousel-slide img{object-position:center center}}
 @media(prefers-reduced-motion:reduce){.qcn-carousel-slide{transition:none}}
 
 /* Preserve the original QCN hero, including its live CSS atom animation. */
@@ -21,4 +24,4 @@
 .qcn-carousel-original .hero-ambient{pointer-events:none}
 .qcn-carousel-original .hero{position:relative}
 @media(max-width:900px){.qcn-photo-carousel{height:clamp(570px,78vw,790px)}.qcn-carousel-original .hero{min-height:0}}
-@media(max-width:650px){.qcn-photo-carousel{height:clamp(590px,135vw,760px)}.qcn-carousel-original .hero{min-height:0}}
+@media(max-width:650px){.qcn-photo-carousel{height:clamp(500px,132vw,650px)}.qcn-carousel-original .hero{min-height:0}}

@@ -1,7 +1,7 @@
 ---
 title: "Xiangjin Kong"
 layout: "pi"
-
+photo: "/images/people/xiangjinkong.png"
 position: "Research Fellow"
 
 # photo: "/images/people/xiangjinkong.jpg"

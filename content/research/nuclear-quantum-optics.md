@@ -2,7 +2,7 @@
 title: "Quantum Control of Nuclei"
 weight: 1
 
-image: "/images/home/about-quantum-optics.png"
+image: "/images/home/1.png"
 
 summary: "We explore nuclear quantum optics and cavity QED, with an emphasis on coherent x-ray–nuclear interactions, collective quantum dynamics, and non-Hermitian and topological phenomena."
 ---

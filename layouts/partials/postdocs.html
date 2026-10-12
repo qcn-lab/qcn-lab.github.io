@@ -63,6 +63,22 @@
                     </div>
     
                     {{ end }}
+                    {{ with .Params.orcid }}
+
+                    <div class="student-block">
+
+                        <div class="student-heading">
+                            ORCID
+                        </div>
+
+                        <a href="{{ . }}" target="_blank" rel="noopener noreferrer">
+                            {{ . }}
+                        </a>
+
+                    </div>
+
+                    {{ end }}
+                    
     
     
                     {{ with .Params.research }}

@@ -1,7 +1,11 @@
 {{ define "main" }}
 
-<!-- Homepage carousel: original animated hero followed by two group photographs. -->
-<link rel="stylesheet" href="{{ "css/qcn-carousel.css" | relURL }}">
+<!-- Homepage cover: Fudan blue background with the original carousel preserved. -->
+<link rel="stylesheet" href="{{ "css/qcn-carousel.css?v=20261012-3" | relURL }}">
+<section class="qcn-cover-shell" aria-label="Fudan University and QCN Group homepage cover">
+<div class="qcn-cover-brand">
+  <img src="{{ "images/fudan-english-logo.png" | relURL }}" alt="Fudan University">
+</div>
 <section class="qcn-photo-carousel" aria-label="QCN Group homepage carousel" aria-roledescription="carousel" tabindex="0">
   <div class="qcn-carousel-track">
     <div class="qcn-carousel-slide qcn-carousel-original is-active" aria-hidden="false">
@@ -36,7 +40,6 @@
             <span class="visual-cross">+</span>
         </div>
     </div>
-    <div class="hero-bottom"><span>QUANTUM SCIENCE · NUCLEAR OPTICS · AI FOR SCIENCE</span><span>SCROLL TO EXPLORE ↓</span></div>
 </section>
 
 
@@ -52,6 +55,7 @@
     <button type="button" aria-label="Show slide 2"></button>
     <button type="button" aria-label="Show slide 3"></button>
   </div>
+</section>
 </section>
 <script src="{{ "js/qcn-carousel.js" | relURL }}" defer></script>
 
@@ -98,7 +102,7 @@
             <div class="welcome-image">
 
                 <img
-                    src="{{ "/images/home/about-quantum-optics.png" | relURL }}"
+                    src="/images/home/about-quantum-optics.png?v=20261012fix3"
                     alt="Quantum optics research at QCN Research Group"
                 >
 
@@ -242,7 +246,7 @@
                 </div>
 
                 <h3>
-                    Nuclear Quantum Optics
+                    Quantum Control of Nuclei
                 </h3>
 
                 <p>
@@ -262,7 +266,7 @@
                 </div>
 
                 <h3>
-                    Quantum-Dot Experimental Platforms
+                    Quantum Physics under Extreme Conditions
                 </h3>
 
                 <p>
@@ -283,7 +287,7 @@
                 </div>
 
                 <h3>
-                    AI-Driven Methodologies
+                    AI for Science
                 </h3>
 
                 <p>

@@ -6,7 +6,7 @@ cohort: "2025"
 photo: "/images/people/nanxue.jpg"
 
 email: "xuen@fudan.edu.cn"
-
+orcid: "https://orcid.org/0009-0003-1491-4567"
 research:
   - "Electronic and laser control of nuclear levels; Nuclear Excitation by Electron Capture(NEEC)."
   

@@ -4,13 +4,11 @@ position: "PhD Student"
 cohort: "2023"
 photo: "/images/people/yunyuwang.jpg"
 
-# email: "25110200002@m.fudan.edu.cn"
+email: "yunyuwang23@m.fudan.edu.cn"
 
-# research:
-#   - "AI for Science (AI4S)"
-#   - "AI Agents"
-#   - "Deep Learning"
-#   - "Automated Scientific Discovery"
+research:
+  - "Interaction of X-rays with thin-film optical cavities."
+ 
 
 weight: 1
 ---

@@ -2,12 +2,12 @@
 title: "Yibo Niu"
 position: "PhD Student"
 cohort: "2026"
-# photo: "/images/people/kanglesun.jpg"
+photo: "/images/people/yiboniu.jpg"
 
-# email: "klsun26@m.fudan.edu.cn"
+email: "26110200025@m.fudan.edu.cn"
 
-# research:
-#   - "Laser nuclear physics"
+research:
+  - "AI for Science · Quantum Control"
 
 
 weight: 11

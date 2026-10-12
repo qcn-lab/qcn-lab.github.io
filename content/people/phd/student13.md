@@ -2,12 +2,12 @@
 title: "Yi Hao"
 position: "PhD Student"
 cohort: "2026"
-# photo: "/images/people/kanglesun.jpg"
+photo: "/images/people/yihao.jpg"
 
-# email: "klsun26@m.fudan.edu.cn"
+email: "26110200008@m.fudan.edu.cn"
 
-# research:
-#   - "Laser nuclear physics"
+research:
+  - "Solid-state and trapped-ion nuclear clocks"
 
 
 weight: 12
