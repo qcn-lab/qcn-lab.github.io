@@ -12,6 +12,9 @@
 {{ else if eq .Params.page_kind "postdocs" }}
 
     {{ partial "postdocs.html" . }}
+{{ else if eq .Params.page_kind "undergraduates" }}
+
+    {{ partial "undergraduates-students.html" . }}
 
 {{ else if eq .Params.page_kind "alumni" }}
 
@@ -59,8 +62,14 @@
                 <p>Master's students working across our research areas.</p>
             </a>
 
-            <a href="{{ "/people/alumni/" | relURL }}" class="group-card">
+            <a href="{{ "/people/undergraduates/" | relURL }}" class="group-card">
                 <span>05</span>
+                <h2>Undergraduate Students</h2>
+                <p>Undergraduate students participating in our research projects.</p>
+            </a>
+
+            <a href="{{ "/people/alumni/" | relURL }}" class="group-card">
+                <span>06</span>
                 <h2>Alumni</h2>
                 <p>Former students and their career destinations.</p>
             </a>

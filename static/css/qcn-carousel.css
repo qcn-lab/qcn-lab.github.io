@@ -25,3 +25,33 @@
 .qcn-carousel-original .hero{position:relative}
 @media(max-width:900px){.qcn-photo-carousel{height:clamp(570px,78vw,790px)}.qcn-carousel-original .hero{min-height:0}}
 @media(max-width:650px){.qcn-photo-carousel{height:clamp(500px,132vw,650px)}.qcn-carousel-original .hero{min-height:0}}
+/* Fix homepage carousel button position */
+@media (min-width: 981px) {
+
+    .qcn-carousel-original .hero-layout {
+        min-height: 0 !important;
+        padding-top: 30px !important;
+        padding-bottom: 20px !important;
+    }
+
+    .qcn-carousel-original .hero-eyebrow {
+        margin-bottom: 16px !important;
+    }
+
+    .qcn-carousel-original .hero h1 {
+        font-size: clamp(48px, 4.6vw, 70px) !important;
+        line-height: 1.06 !important;
+        letter-spacing: -2.5px !important;
+        margin-bottom: 18px !important;
+    }
+
+    .qcn-carousel-original .hero-subtitle {
+        font-size: 17px !important;
+        line-height: 1.6 !important;
+        margin-bottom: 20px !important;
+    }
+
+    .qcn-carousel-original .hero-actions {
+        gap: 16px !important;
+    }
+}

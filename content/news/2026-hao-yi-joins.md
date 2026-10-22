@@ -3,7 +3,7 @@ title: "Welcome Yi Hao to the QCN Research Group"
 date: 2026-09-01
 display_date: "SEP 2026"
 
-summary: "We warmly welcome Hao Yi to join the QCN Research Group as a Ph.D. student."
+summary: "We warmly welcome Yi Hao to join the QCN Research Group as a Ph.D. student."
 
 weight: 1
 ---

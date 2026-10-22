@@ -94,27 +94,6 @@
         </div>
 
         <!-- =================================================
-             BIOGRAPHY
-        ================================================== -->
-
-        <section class="pi-section">
-
-            <div class="pi-section-side">
-                <div class="section-number">
-                    01
-                </div>
-                <h2>
-                    Biography
-                </h2>
-            </div>
-
-            <div class="pi-section-content biography">
-                {{ .Content }}
-            </div>
-
-        </section>
-
-        <!-- =================================================
              EDUCATION
         ================================================== -->
 
@@ -122,7 +101,7 @@
 
             <div class="pi-section-side">
                 <div class="section-number">
-                    02
+                    01
                 </div>
                 <h2>
                     Education
@@ -166,7 +145,7 @@
 
             <div class="pi-section-side">
                 <div class="section-number">
-                    03
+                    02
                 </div>
                 <h2>
                     Professional Experience
@@ -203,75 +182,31 @@
         </section>
 
         <!-- =================================================
-             RESEARCH INTERESTS
-        ================================================== -->
-
-        <section class="pi-section">
-
-            <div class="pi-section-side">
-                <div class="section-number">
-                    04
-                </div>
-                <h2>
-                    Research Interests
-                </h2>
-            </div>
-
-            <div class="pi-section-content">
-                <div class="research-tags">
-
-                    {{ range .Params.research }}
-
-                    <div class="research-tag">
-                        {{ . }}
-                    </div>
-
-                    {{ end }}
-
-                </div>
-            </div>
-
-        </section>
-
-        <!-- =================================================
-             OPEN POSITIONS
+             GROUP PHILOSOPHY
         ================================================== -->
 
         <section class="pi-section last-section">
 
             <div class="pi-section-side">
                 <div class="section-number">
-                    05
+                    03
                 </div>
                 <h2>
-                    Open Positions
+                    Group Philosophy
                 </h2>
             </div>
 
-            <div class="pi-section-content">
+            <div class="pi-section-content group-philosophy">
+                <p class="philosophy-intro">
+                    Our group aims to cultivate four core qualities in our students:
+                    <strong>Courage, Endeavor, Faith, and Balance (CEFB).</strong>
+                </p>
 
-                <div class="open-position-card">
-
-                    <p>
-                        We welcome motivated students who are interested in
-                        laser nuclear physics, nuclear quantum optics, and
-                        related areas to apply for master's and Ph.D. positions.
-                    </p>
-
-                    <p>
-                        Postdoctoral applications are also welcome from
-                        candidates with backgrounds in nuclear physics,
-                        quantum optics, high-energy-density physics,
-                        micro- and nanophotonics, or related fields.
-                    </p>
-
-                    <p>
-                        For inquiries, please contact
-                        <a href="mailto:{{ .Params.email }}">
-                            {{ .Params.email }}
-                        </a>.
-                    </p>
-
+                <div class="philosophy-list">
+                    <p class="philosophy-item"><strong>Courage</strong> to pursue ambitious goals, embrace uncertainty, and face challenges.</p>
+                    <p class="philosophy-item"><strong>Endeavor</strong> to work toward those goals with sustained effort, dedication, and perseverance.</p>
+                    <p class="philosophy-item"><strong>Faith</strong> in yourself, in the value of your efforts, and in the power of time—especially when progress is slow and setbacks arise.</p>
+                    <p class="philosophy-item"><strong>Balance</strong> research and life, remembering that study and research are parts of a fulfilling life, not its entirety.</p>
                 </div>
             </div>
 
@@ -442,26 +377,6 @@
 
 
 /* =========================================================
-   BIOGRAPHY
-========================================================= */
-
-.biography {
-    max-width: 760px;
-    color: #475569;
-    font-size: 16.5px;
-    line-height: 1.9;
-}
-
-.biography p {
-    margin: 0 0 25px;
-}
-
-.biography p:last-child {
-    margin-bottom: 0;
-}
-
-
-/* =========================================================
    TIMELINE
 ========================================================= */
 
@@ -507,55 +422,42 @@
 
 
 /* =========================================================
-   RESEARCH TAGS
+   GROUP PHILOSOPHY
 ========================================================= */
 
-.research-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
+.group-philosophy {
+    max-width: 790px;
 }
 
-.research-tag {
-    padding: 10px 14px;
-    color: #1e40af;
-    background: #eff6ff;
-    border: 1px solid #dbeafe;
-    border-radius: 5px;
-    font-size: 13px;
-    line-height: 1.35;
-}
-
-
-/* =========================================================
-   OPEN POSITIONS
-========================================================= */
-
-.open-position-card {
-    padding: 30px 32px;
-    background: #f8fafc;
-    border-left: 3px solid #2563eb;
-}
-
-.open-position-card p {
-    margin: 0 0 18px;
-    color: #475569;
-    font-size: 15px;
+.philosophy-intro {
+    margin: 0 0 28px;
+    color: #334155;
+    font-size: 19px;
+    font-weight: 500;
     line-height: 1.8;
 }
 
-.open-position-card p:last-child {
-    margin-bottom: 0;
+.philosophy-intro strong {
+    color: #153f78;
+    font-weight: 700;
 }
 
-.open-position-card a {
-    color: #2563eb;
-    font-weight: 500;
-    text-decoration: none;
+.philosophy-list {
+    border-top: 1px solid #e2e8f0;
 }
 
-.open-position-card a:hover {
-    text-decoration: underline;
+.philosophy-item {
+    margin: 0;
+    padding: 18px 0;
+    border-bottom: 1px solid #e2e8f0;
+    color: #475569;
+    font-size: 17px;
+    line-height: 1.8;
+}
+
+.philosophy-item strong {
+    color: #195bab;
+    font-weight: 700;
 }
 
 
@@ -642,10 +544,6 @@
     .contact-row {
         grid-template-columns: 1fr;
         gap: 4px;
-    }
-
-    .open-position-card {
-        padding: 25px 23px;
     }
 
 }
