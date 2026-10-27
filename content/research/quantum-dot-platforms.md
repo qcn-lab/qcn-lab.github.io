@@ -1,7 +1,7 @@
 ---
 title: "Quantum Physics under Extreme Conditions"
 weight: 2
-image: "/images/home/quantum dot.jpg"
+image: "/images/home/quantum_dot.jpg"
 summary: "We investigate quantum phenomena and control under low-temperature and high-magnetic-field conditions, developing laboratory platforms to study and manipulate quantum states and to complement experiments at large-scale x-ray facilities."
 ---
 Our group investigates quantum phenomena under low-temperature and high-magnetic-field conditions using dedicated laboratory platforms. These capabilities allow us to study quantum states and their dynamics, and to explore how they can be manipulated through tunable interactions and external fields.
