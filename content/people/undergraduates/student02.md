@@ -1,7 +1,7 @@
 ---
 title: "Yonggong Teng"
 position: "Undergraduate Student"
-cohort: "2023"
+cohort: "2024"
 
 photo: "/images/people/yonggongteng.jpg"
 

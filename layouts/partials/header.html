@@ -1,512 +1,337 @@
-<header class="site-header">
+<!-- QCN Lab: Fudan-blue masthead with two original group/university marks. -->
+<header class="site-header qcn-site-header">
+    <div class="nav-container qcn-nav-container">
 
-    <div class="nav-container">
+        <div class="qcn-header-mark qcn-header-mark--fudan">
+            <img src="{{ "images/fudan-english-logo.png" | relURL }}" alt="Fudan University" width="434" height="134">
+        </div>
 
-
-        <!-- =========================================
-             Group Name
-        ========================================== -->
-
-        <a class="site-logo" href="{{ "/" | relURL }}">
-            Quantum Control of Nuclei (QCN) Group
+        <a class="site-logo qcn-header-title" href="{{ "/" | relURL }}" aria-label="QCN Lab, home page">
+            QCN <span>LAB</span>
         </a>
 
+        <nav class="main-nav qcn-main-nav" id="primary-navigation" aria-label="Main navigation">
+            <a href="{{ "/" | relURL }}">Home</a>
+            <a href="{{ "/research/" | relURL }}">Research</a>
 
-
-        <!-- =========================================
-             Main Navigation
-        ========================================== -->
-
-        <button class="menu-toggle" type="button" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
-        <nav class="main-nav" id="primary-navigation" aria-label="Main navigation">
-
-
-            <!-- Home -->
-
-            <a href="{{ "/" | relURL }}">
-                Home
-            </a>
-
-
-
-            <!-- Research -->
-
-            <a href="{{ "/research/" | relURL }}">
-                Research
-            </a>
-
-
-
-            <!-- =====================================
-                 People Dropdown
-            ====================================== -->
-
-            <div class="nav-dropdown">
-
-                <a
-                    class="dropdown-title"
-                    href="{{ "/people/" | relURL }}"
-                >
-                    People
-
-                    <span class="arrow">
-                        ▾
-                    </span>
-
+            <div class="nav-dropdown qcn-people-dropdown">
+                <a class="dropdown-title" href="{{ "/people/" | relURL }}">
+                    People <span class="arrow" aria-hidden="true">▾</span>
                 </a>
-
-
                 <div class="dropdown-menu">
-
-
-                    <!-- Principal Investigator -->
-
-                    <a href="{{ "/people/pi/" | relURL }}">
-                        Principal Investigator
-                    </a>
-
-
-                    <!-- Postdoctoral Researchers -->
-
-                    <a href="{{ "/people/postdocs/" | relURL }}">
-                        Postdoctoral Researchers
-                    </a>
-
-
-                    <!-- PhD Students -->
-
-                    <a href="{{ "/people/phd/" | relURL }}">
-                        PhD Students
-                    </a>
-
-
-                    <!-- Master's Students -->
-
-                    <a href="{{ "/people/masters/" | relURL }}">
-                        Master's Students
-                    </a>
-
-                    <a href="{{ "/people/undergraduates/" | relURL }}">
-                        Undergraduate Students
-                    </a>
-
+                    <a href="{{ "/people/pi/" | relURL }}">Principal Investigator</a>
+                    <a href="{{ "/people/postdocs/" | relURL }}">Postdoctoral Researchers</a>
+                    <a href="{{ "/people/phd/" | relURL }}">PhD Students</a>
+                    <a href="{{ "/people/masters/" | relURL }}">Master's Students</a>
+                    <a href="{{ "/people/undergraduates/" | relURL }}">Undergraduate Students</a>
                     <a href="{{ "/people/alumni/" | relURL }}">Alumni</a>
-
-
                 </div>
-
             </div>
 
-
-
-            <!-- Publications -->
-
-            <a href="{{ "/publications/" | relURL }}">
-                Publications
-            </a>
-
-
-
-
-
-            <!-- News -->
-
-            <a href="{{ "/news/" | relURL }}">
-                News
-            </a>
-
-             <!-- Activities -->
-             <a href="{{ "/activities/" | relURL }}">
-                 Activities
-             </a>
-            
-
-
-
-            <!-- Join Us -->
-
-            <a href="{{ "/join/" | relURL }}">
-                Join Us
-            </a>
-
-
+            <a href="{{ "/publications/" | relURL }}">Publications</a>
+            <a href="{{ "/news/" | relURL }}">News</a>
+            <a href="{{ "/join/" | relURL }}">Join Us</a>
         </nav>
 
+        <button class="menu-toggle qcn-menu-toggle" type="button"
+                aria-controls="primary-navigation" aria-expanded="false"
+                aria-label="Open navigation menu">
+            <span></span><span></span><span></span>
+        </button>
+
+        <div class="qcn-header-mark qcn-header-mark--lab">
+            <img src="{{ "images/qcn-lab-logo.png" | relURL }}" alt="QCN Lab logo" width="1213" height="919">
+        </div>
     </div>
 
-
-
-    <!-- =========================================
-         Header CSS
-    ========================================== -->
-
     <style>
-
-
-        /* =========================================
-           Header
-        ========================================== */
-
-        .site-header {
-
+        /* This block follows qcn-refresh.css and intentionally overrides its old white header. */
+        .qcn-site-header {
             position: fixed;
-
-            top: 0;
-
-            left: 0;
-
-            width: 100%;
-
-            height: 80px;
-
-            background: rgba(255, 255, 255, 0.97);
-
-            border-bottom: 1px solid #e5e7eb;
-
+            inset: 0 0 auto 0;
             z-index: 1000;
-
+            height: 112px !important;
+            background: #073669 !important;
+            border-bottom: 5px solid #ca9c5b !important;
+            box-shadow: 0 6px 24px rgba(4, 23, 49, .14) !important;
+            backdrop-filter: none !important;
         }
 
-
-
-        /* =========================================
-           Navigation Container
-        ========================================== */
-
-        .nav-container {
-
+        .qcn-nav-container {
             width: 100%;
-
-            max-width: 1280px;
-
+            max-width: none !important;
             height: 100%;
-
-            margin: 0 auto;
-
-            padding: 0 32px;
-
-            display: flex;
-
+            display: grid !important;
+            grid-template-columns: 180px max-content minmax(0, 1fr) 88px;
             align-items: center;
-
-            justify-content: space-between;
-
-            box-sizing: border-box;
-
+            gap: clamp(16px, 1.7vw, 32px) !important;
+            padding: 0 clamp(22px, 3.8vw, 82px) !important;
         }
 
-
-
-        /* =========================================
-           Logo
-        ========================================== */
-
-        .site-logo {
-
-            font-size: 25px;
-
-            font-weight: 700;
-
-            letter-spacing: 0.3px;
-
-            color: #0f172a;
-
-            text-decoration: none;
-
-            white-space: nowrap;
-
-        }
-
-
-        .site-logo:hover {
-
-            color: #2563eb;
-
-        }
-
-
-
-        /* =========================================
-           Main Navigation
-        ========================================== */
-
-        .main-nav {
-
-            height: 100%;
-
+        .qcn-header-mark {
             display: flex;
-
             align-items: center;
-
-            gap: 28px;
-
+            justify-content: center;
+            background: #fff;
+            border: 1px solid rgba(255, 255, 255, .58);
+            border-radius: 9px;
+            box-shadow: 0 4px 12px rgba(0, 20, 46, .12);
+            overflow: hidden;
         }
 
-
-
-        .main-nav > a,
-        .dropdown-title {
-
-            height: 100%;
-
-            display: flex;
-
-            align-items: center;
-
-            font-size: 15px;
-
-            font-weight: 500;
-
-            color: #334155;
-
-            text-decoration: none;
-
-            white-space: nowrap;
-
-            transition: color 0.2s ease;
-
-        }
-
-
-
-        .main-nav > a:hover,
-        .dropdown-title:hover {
-
-            color: #2563eb;
-
-        }
-
-
-
-        /* =========================================
-           People Dropdown
-        ========================================== */
-
-        .nav-dropdown {
-
-            position: relative;
-
-            height: 100%;
-
-            display: flex;
-
-            align-items: center;
-
-        }
-
-
-
-        .arrow {
-
-            margin-left: 5px;
-
-            font-size: 11px;
-
-            transition: transform 0.2s ease;
-
-        }
-
-
-
-        .nav-dropdown:hover .arrow {
-
-            transform: rotate(180deg);
-
-        }
-
-
-
-        /* =========================================
-           Dropdown Menu
-        ========================================== */
-
-        .dropdown-menu {
-
-            position: absolute;
-
-            top: 80px;
-
-            left: 50%;
-
-            transform: translateX(-50%);
-
-            width: 240px;
-
-            padding: 9px;
-
-            background: #ffffff;
-
-            border: 1px solid #e5e7eb;
-
-            border-radius: 8px;
-
-            box-shadow:
-                0 12px 35px rgba(0, 0, 0, 0.10);
-
-            opacity: 0;
-
-            visibility: hidden;
-
-            pointer-events: none;
-
-            transition:
-                opacity 0.18s ease,
-                visibility 0.18s ease;
-
-        }
-
-
-
-        /*
-           Invisible bridge between People
-           and dropdown menu.
-           Prevents menu disappearing.
-        */
-
-        .dropdown-menu::before {
-
-            content: "";
-
-            position: absolute;
-
-            left: 0;
-
-            top: -15px;
-
-            width: 100%;
-
-            height: 15px;
-
-        }
-
-
-
-        /* =========================================
-           Dropdown Items
-        ========================================== */
-
-        .dropdown-menu a {
-
+        .qcn-header-mark img {
             display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
 
-            padding: 11px 13px;
+        .qcn-header-mark--fudan {
+            width: 180px;
+            height: 68px;
+            padding: 9px 10px;
+        }
 
-            border-radius: 6px;
+        .qcn-header-mark--lab {
+            grid-column: 4;
+            width: 88px;
+            height: 74px;
+            padding: 3px 4px;
+        }
 
-            color: #334155;
-
-            font-size: 14px;
-
-            font-weight: 400;
-
+        .qcn-header-title,
+        .qcn-header-title:hover {
+            grid-column: 2;
+            max-width: none !important;
+            display: inline-block;
+            color: #fff !important;
+            font-family: Georgia, 'Times New Roman', serif;
+            font-size: clamp(30px, 2.65vw, 43px) !important;
+            font-weight: 500 !important;
+            letter-spacing: -.8px !important;
+            line-height: 1 !important;
+            white-space: nowrap !important;
             text-decoration: none;
+        }
 
+        .qcn-header-title::before { display: none !important; }
+        .qcn-header-title span { font-weight: 400; }
+
+        .qcn-main-nav {
+            grid-column: 3;
+            display: flex !important;
+            justify-self: end;
+            align-items: center;
+            justify-content: flex-end;
+            gap: clamp(14px, 1.65vw, 31px) !important;
+            min-width: 0;
+            height: 100%;
+        }
+
+        .qcn-main-nav > a,
+        .qcn-main-nav .dropdown-title {
+            display: flex;
+            align-items: center;
+            height: 100%;
+            padding: 0;
+            color: #fff !important;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            font-size: clamp(16px, 1.25vw, 20px) !important;
+            font-weight: 550 !important;
+            letter-spacing: 0 !important;
+            line-height: 1.25;
             white-space: nowrap;
-
-            transition:
-                background 0.18s ease,
-                color 0.18s ease;
-
+            text-decoration: none;
+            transition: color .2s ease;
         }
 
+        .qcn-main-nav > a:hover,
+        .qcn-main-nav .dropdown-title:hover,
+        .qcn-main-nav > a:focus-visible,
+        .qcn-main-nav .dropdown-title:focus-visible { color: #f2cd8c !important; }
 
+        .qcn-main-nav .nav-dropdown { position: relative; height: 100%; display: flex; align-items: center; }
+        .qcn-main-nav .arrow { margin-left: 7px; font-size: 13px; }
 
-        .dropdown-menu a:hover {
-
-            background: #f1f5f9;
-
-            color: #2563eb;
-
+        .qcn-main-nav .dropdown-menu {
+            position: absolute;
+            top: 100% !important;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 253px;
+            padding: 10px;
+            background: #fff !important;
+            border: 1px solid #dce7f2;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 16px 35px rgba(12, 38, 65, .19);
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            transition: opacity .16s ease, visibility .16s ease;
         }
 
+        .qcn-main-nav .dropdown-menu::before {
+            content: '';
+            position: absolute;
+            top: -14px;
+            left: 0;
+            width: 100%;
+            height: 14px;
+        }
 
+        .qcn-main-nav .dropdown-menu a {
+            display: block;
+            padding: 11px 12px;
+            border-radius: 5px;
+            color: #163957 !important;
+            background: #fff;
+            font-size: 15px !important;
+            font-weight: 450;
+            text-decoration: none;
+            white-space: normal;
+        }
 
-        /* =========================================
-           Show Dropdown
-        ========================================== */
+        .qcn-main-nav .dropdown-menu a:hover,
+        .qcn-main-nav .dropdown-menu a:focus-visible { background: #edf5fb; color: #075a92 !important; }
 
-        .nav-dropdown:hover .dropdown-menu {
-
+        .qcn-main-nav .nav-dropdown:hover .dropdown-menu,
+        .qcn-main-nav .nav-dropdown:focus-within .dropdown-menu {
             opacity: 1;
-
             visibility: visible;
-
             pointer-events: auto;
-
         }
 
+        .qcn-menu-toggle { display: none !important; }
+        main { padding-top: 112px !important; }
 
-
-        /* =========================================
-           Responsive
-        ========================================== */
-
-        @media (max-width: 1100px) {
-
-            .main-nav {
-
-                gap: 20px;
-
+        @media (max-width: 1199px) {
+            .qcn-site-header { height: 100px !important; }
+            main { padding-top: 100px !important; }
+            .qcn-nav-container {
+                grid-template-columns: 154px minmax(0, 1fr) 46px 70px;
+                gap: clamp(12px, 1.7vw, 25px) !important;
+                padding: 0 26px !important;
             }
-
-
-            .main-nav > a,
-            .dropdown-title {
-
-                font-size: 14px;
-
+            .qcn-header-mark--fudan { width: 154px; height: 60px; padding: 8px; }
+            .qcn-header-mark--lab { width: 70px; height: 65px; }
+            .qcn-header-title { font-size: 36px !important; }
+            .qcn-menu-toggle {
+                grid-column: 3;
+                display: flex !important;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                width: 46px;
+                height: 44px;
+                padding: 7px;
+                margin: 0;
+                border: 1px solid rgba(255,255,255,.5);
+                border-radius: 6px;
+                background: transparent !important;
+                cursor: pointer;
             }
-
+            .qcn-menu-toggle span { display: block; width: 24px; height: 2px; margin: 3px 0; background: #fff !important; }
+            .qcn-main-nav {
+                display: none !important;
+                position: absolute;
+                grid-column: auto;
+                top: 100% !important;
+                left: 0;
+                right: 0;
+                height: auto !important;
+                max-height: calc(100dvh - 100px);
+                overflow-y: auto;
+                z-index: 1001;
+                flex-direction: column;
+                align-items: stretch !important;
+                justify-content: flex-start;
+                gap: 0 !important;
+                padding: 15px 30px 25px;
+                background: #073669 !important;
+                border-bottom: 4px solid #ca9c5b;
+                box-shadow: 0 16px 32px rgba(0, 16, 36, .25);
+            }
+            .qcn-main-nav.menu-open { display: flex !important; }
+            .qcn-main-nav > a,
+            .qcn-main-nav .dropdown-title {
+                min-height: 49px;
+                height: auto !important;
+                padding: 12px 4px;
+                font-size: 19px !important;
+                border-bottom: 1px solid rgba(255,255,255,.18);
+            }
+            .qcn-main-nav .nav-dropdown { display: block; height: auto !important; }
+            .qcn-main-nav .dropdown-menu {
+                position: static !important;
+                display: block !important;
+                transform: none !important;
+                width: 100% !important;
+                height: auto;
+                padding: 3px 0 8px 18px;
+                background: transparent !important;
+                border: 0;
+                border-radius: 0;
+                box-shadow: none !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+                pointer-events: auto !important;
+            }
+            .qcn-main-nav .dropdown-menu::before { display: none; }
+            .qcn-main-nav .dropdown-menu a { background: transparent; color: #dbe9f6 !important; padding: 9px 4px; font-size: 16px !important; }
+            .qcn-main-nav .dropdown-menu a:hover { background: rgba(255,255,255,.1); color: #fff !important; }
         }
 
-
-
-        @media (max-width: 950px) {
-
-            .nav-container {
-
-                padding-left: 22px;
-
-                padding-right: 22px;
-
+        @media (max-width: 600px) {
+            .qcn-site-header { height: 82px !important; }
+            main { padding-top: 82px !important; }
+            .qcn-nav-container {
+                grid-template-columns: 90px minmax(0, 1fr) 38px 48px;
+                gap: 8px !important;
+                padding: 0 13px !important;
             }
-
-
-            .main-nav {
-
-                gap: 14px;
-
-            }
-
-
-            .main-nav > a,
-            .dropdown-title {
-
-                font-size: 13px;
-
-            }
-
+            .qcn-header-mark--fudan { width: 90px; height: 48px; padding: 4px; border-radius: 5px; }
+            .qcn-header-mark--lab { width: 48px; height: 51px; padding: 2px; border-radius: 5px; }
+            .qcn-header-title { font-size: clamp(21px, 5.5vw, 28px) !important; letter-spacing: -.3px !important; }
+            .qcn-menu-toggle { width: 38px; height: 38px; padding: 6px; }
+            .qcn-menu-toggle span { width: 21px; }
+            .qcn-main-nav { max-height: calc(100dvh - 82px); padding: 11px 22px 24px; }
         }
 
-
+        @media (prefers-reduced-motion: reduce) {
+            .qcn-main-nav .dropdown-menu { transition: none; }
+        }
     </style>
 
-<script>
-(function () {
-    const toggle = document.querySelector('.menu-toggle');
-    const nav = document.querySelector('#primary-navigation');
-    if (!toggle || !nav) return;
-    toggle.addEventListener('click', function () {
-        const open = toggle.getAttribute('aria-expanded') !== 'true';
-        toggle.setAttribute('aria-expanded', String(open));
-        nav.classList.toggle('menu-open', open);
-    });
-    nav.addEventListener('click', function (event) {
-        if (event.target.closest('a') && !event.target.closest('.dropdown-title')) {
+    <script>
+    (function () {
+        const toggle = document.querySelector('.qcn-menu-toggle');
+        const nav = document.querySelector('#primary-navigation');
+        if (!toggle || !nav) return;
+
+        function closeMenu() {
             toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'Open navigation menu');
             nav.classList.remove('menu-open');
         }
-    });
-})();
-</script>
+
+        toggle.addEventListener('click', function () {
+            const opening = toggle.getAttribute('aria-expanded') !== 'true';
+            toggle.setAttribute('aria-expanded', String(opening));
+            toggle.setAttribute('aria-label', opening ? 'Close navigation menu' : 'Open navigation menu');
+            nav.classList.toggle('menu-open', opening);
+        });
+
+        nav.addEventListener('click', function (event) {
+            if (event.target.closest('a')) closeMenu();
+        });
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape') closeMenu();
+        });
+
+        window.addEventListener('resize', function () {
+            if (window.innerWidth >= 1200) closeMenu();
+        });
+    })();
+    </script>
 </header>

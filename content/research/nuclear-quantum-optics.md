@@ -6,7 +6,7 @@ image: "/images/home/1.png"
 
 summary: "We explore nuclear quantum optics and cavity QED, with an emphasis on coherent x-ray–nuclear interactions, collective quantum dynamics, and non-Hermitian and topological phenomena."
 ---
-We explore the coherent control of nuclear quantum states and collective nuclear excitations, both theoretically and experimentally. A major focus is the interaction between resonant nuclei and x-ray photons in engineered photonic environments, including thin-film cavities and waveguides.γ
+We explore the coherent control of nuclear quantum states and collective nuclear excitations, both theoretically and experimentally. A major focus is the interaction between resonant nuclei and x-ray photons in engineered photonic environments, including thin-film cavities and waveguides.
 
 Our research focuses on x-ray quantum optics and nuclear cavity QED, with particular interests in collective nuclear dynamics and quantum interference, non-Hermitian and topological phenomena in nuclear systems, and the coherent control of nuclear excitations and x-ray photons.
 
