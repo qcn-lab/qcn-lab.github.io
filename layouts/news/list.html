@@ -19,7 +19,7 @@
 
         <p class="news-page-intro">
             Latest news, research highlights, group activities,
-            and academic updates from QCN Lab.
+            and academic updates from QCN&nbsp;Lab.
         </p>
 
 
@@ -157,7 +157,8 @@
 
 .news-page-intro {
 
-    max-width: 700px;
+    /* Extra room accommodates font metrics in Safari on macOS. */
+    max-width: 950px;
 
     margin: 0 0 75px;
 
@@ -166,6 +167,18 @@
     font-size: 18px;
 
     line-height: 1.7;
+
+}
+
+
+/* Keep the desktop subtitle on one line; allow natural wrapping on smaller screens. */
+@media (min-width: 1050px) {
+
+    .news-page-intro {
+
+        white-space: nowrap;
+
+    }
 
 }
 

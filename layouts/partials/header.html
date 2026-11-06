@@ -96,7 +96,14 @@
             grid-column: 4;
             width: 88px;
             height: 74px;
-            padding: 3px 4px;
+            padding: 0;
+        }
+
+        /* The original QCN artwork has wide transparent margins. Zoom the
+           image inside its existing white badge instead of enlarging the badge. */
+        .qcn-header-mark--lab img {
+            transform: scale(1.58);
+            transform-origin: center;
         }
 
         .qcn-header-title,

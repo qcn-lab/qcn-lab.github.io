@@ -356,7 +356,7 @@
 
     width: 100%;
 
-    min-height: 245px;
+    height: 245px;
 
     display: flex;
 
@@ -365,6 +365,11 @@
     justify-content: center;
 
     overflow: hidden;
+
+    /* No colored frame behind the three research thumbnails. */
+    padding: 0;
+
+    background: transparent;
 
 }
 
@@ -375,9 +380,10 @@
 
     width: 100%;
 
-    height: 245px;
+    height: 100%;
 
-    object-fit: cover;
+    /* Show the entire image, including labels near its edges. */
+    object-fit: contain;
 
     object-position: center;
 
@@ -438,15 +444,16 @@
 
         order: -1;
 
+        height: 260px;
+
     }
 
 
-    .research-area-image img,
     .research-image-placeholder {
 
-        height: auto;
+        height: 100%;
 
-        min-height: 260px;
+        min-height: 0;
 
     }
 
@@ -511,6 +518,13 @@
     .research-area-summary {
 
         font-size: 14px;
+
+    }
+
+
+    .research-area-image {
+
+        height: 210px;
 
     }
 
